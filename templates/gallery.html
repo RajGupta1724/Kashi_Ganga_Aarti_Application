@@ -1,0 +1,183 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Gallery — Sacred Ceremony Photos | Kashi Ganga{% endblock %}
+{% block meta_description %}View photos and videos of our sacred Ganga Aarti ceremonies — weddings, birthdays, anniversaries and spiritual events at the holy ghats of Varanasi.{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-content container">
+    <div class="section-badge mx-auto mb-3" style="background:rgba(249,183,51,0.15); color:var(--secondary); border-color:rgba(249,183,51,0.3);">
+      📸 Sacred Moments
+    </div>
+    <h1 class="page-hero-title">Ceremony <span>Gallery</span></h1>
+    <p class="page-hero-sub">Every photograph tells a sacred story of devotion, love, and divine grace.</p>
+    <nav class="page-hero-breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span class="sep">/</span>
+      <span>Gallery</span>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GALLERY WITH FILTER
+============================================================ -->
+<section class="section-padding">
+  <div class="container">
+
+    <!-- Filter buttons -->
+    <div class="gallery-filter fade-in-up">
+      <a href="{% url 'gallery' %}" class="gallery-filter-btn {% if active_category == 'all' %}active{% endif %}">
+        All
+      </a>
+      {% for cat_key, cat_label in categories %}
+      <a href="{% url 'gallery' %}?category={{ cat_key }}"
+         class="gallery-filter-btn {% if active_category == cat_key %}active{% endif %}">
+        {{ cat_label }}
+      </a>
+      {% endfor %}
+    </div>
+
+    <!-- Gallery Grid -->
+    {% if images %}
+    <div class="gallery-page-grid" id="galleryGrid">
+      {% for img in images %}
+      <div class="gallery-page-item fade-in-up"
+           data-title="{{ img.title }}"
+           data-src="{{ img.image.url }}"
+           onclick="openLightbox('{{ img.image.url }}', '{{ img.title }}')">
+        <img src="{{ img.image.url }}" alt="{{ img.title }}" loading="lazy" />
+        <div class="overlay">
+          <i class="fas fa-search-plus"></i>
+          <span>{{ img.title }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    {% else %}
+    <!-- Placeholder gallery when no images uploaded yet -->
+    <div class="gallery-page-grid" id="galleryGrid">
+      {% for item in placeholder_items %}
+      <div class="gallery-page-item fade-in-up">
+        <div class="gallery-placeholder-grid">{{ item }}</div>
+        <div class="overlay">
+          <i class="fas fa-images"></i>
+          <span>Sacred Ceremony</span>
+        </div>
+      </div>
+      {% empty %}
+      {% for emoji in "🔥🪔🌸💐🕉️🙏🌅🎆🌺🏛️🛕✨" %}
+      <div class="gallery-page-item fade-in-up">
+        <div class="gallery-placeholder-grid">{{ emoji }}</div>
+        <div class="overlay">
+          <i class="fas fa-images"></i>
+          <span>Sacred Ceremony</span>
+        </div>
+      </div>
+      {% endfor %}
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-5 fade-in-up">
+      <div style="background: var(--bg-warm); border: 1px dashed var(--border); border-radius: var(--radius-lg); padding: 40px; max-width: 500px; margin: 0 auto;">
+        <div style="font-size: 3rem; margin-bottom: 12px;">📸</div>
+        <h4 style="font-family: var(--font-heading); color: var(--dark-mid); margin-bottom: 8px;">Gallery Coming Soon</h4>
+        <p style="font-size: 0.9rem; color: var(--text-muted);">
+          We are adding photos of our beautiful ceremonies. Please visit again soon,
+          or <a href="{% url 'booking' %}" style="color: var(--primary); font-weight: 600;">book a ceremony</a> to experience it yourself!
+        </p>
+      </div>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     LIGHTBOX
+============================================================ -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()" aria-label="Close">
+    <i class="fas fa-times"></i>
+  </button>
+  <img src="" alt="" class="lightbox-img" id="lightboxImg" />
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+
+<!-- ============================================================
+     VIDEO SECTION
+============================================================ -->
+<section class="section-padding" style="background: var(--bg-light);">
+  <div class="container">
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">🎥 Watch & Feel</div>
+      <h2 class="section-title">Experience the <span>Ganga Aarti</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">Watch the mesmerizing Ganga Aarti ceremony at Dashashwamedh Ghat, Varanasi.</p>
+    </div>
+
+    <div class="row justify-content-center fade-in-up">
+      <div class="col-lg-10">
+        <div style="position: relative; padding-bottom: 56.25%; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-lg);">
+          <iframe
+            src="https://www.youtube.com/embed/s-szBkrU6MA?rel=0&modestbranding=1"
+            title="Ganga Aarti Varanasi"
+            style="position:absolute; top:0; left:0; width:100%; height:100%; border:0;"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen>
+          </iframe>
+        </div>
+        <p class="text-center mt-3" style="font-size:0.85rem; color: var(--text-muted);">
+          The grand Ganga Aarti ceremony at Dashashwamedh Ghat, Varanasi — one of the world's most magnificent spiritual spectacles.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- CTA -->
+<section class="booking-cta-section section-padding-sm">
+  <div class="container text-center" style="position:relative; z-index:1;">
+    <div class="fade-in-up">
+      <p style="color:rgba(255,255,255,0.85); font-size:1.05rem; margin-bottom: 20px;">
+        Want to create your own sacred memory here?
+      </p>
+      <a href="{% url 'booking' %}" class="btn-outline-custom" style="border-color:white; color:white;">
+        <i class="fas fa-calendar-alt"></i> Book Your Ceremony
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+function openLightbox(src, caption) {
+  const lb = document.getElementById('lightbox');
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxCaption').textContent = caption || '';
+  lb.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (!e || e.target.id === 'lightbox' || e.target.closest('.lightbox-close')) {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeLightbox();
+});
+</script>
+{% endblock %}

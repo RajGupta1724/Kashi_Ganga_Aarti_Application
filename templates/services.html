@@ -1,0 +1,283 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Our Services — Wedding, Birthday & Spiritual Aarti | Kashi Ganga{% endblock %}
+{% block meta_description %}Explore Kashi Ganga's services: Wedding Ganga Aarti, Birthday Aarti, Anniversary Aarti, Satyanarayan Puja, and special spiritual ceremonies in Varanasi.{% endblock %}
+{% block meta_keywords %}Wedding Ganga Aarti, Birthday Puja Varanasi, Anniversary Ceremony, Satyanarayan Puja Booking, Spiritual Ceremony Varanasi{% endblock %}
+
+{% block content %}
+
+<!-- Page Hero -->
+<section class="page-hero">
+  <div class="page-hero-content container">
+    <div class="section-badge mx-auto mb-3" style="background:rgba(249,183,51,0.15); color:var(--secondary); border-color:rgba(249,183,51,0.3);">
+      🪔 Sacred Services
+    </div>
+    <h1 class="page-hero-title">Our <span>Spiritual Services</span></h1>
+    <p class="page-hero-sub">Authentic Vedic ceremonies for every sacred occasion, performed by experienced priests on the holy banks of the Ganga.</p>
+    <nav class="page-hero-breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span class="sep">/</span>
+      <span>Services</span>
+    </nav>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES — DETAILED
+============================================================ -->
+<section class="section-padding">
+  <div class="container">
+
+    <!-- ---- Wedding Ganga Aarti ---- -->
+    <div class="row g-5 align-items-center mb-5 pb-5" style="border-bottom: 1px solid var(--border);">
+      <div class="col-lg-6 order-lg-1 fade-in-up">
+        <div style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg);">
+          <div style="background: linear-gradient(135deg, #e65c00, #f9b733); height: 380px; display:flex; align-items:center; justify-content:center; font-size:10rem;">
+            🌸
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-2 fade-in-up">
+        <div class="section-badge">🌸 Most Requested</div>
+        <h2 class="section-title">Wedding <span>Ganga Aarti</span></h2>
+        <div class="section-divider left"></div>
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:20px;">
+          Begin your sacred marital journey with the divine blessings of Maa Ganga. Our Wedding Ganga Aarti is a deeply spiritual and culturally rich ceremony that adds an extraordinary dimension to your wedding celebrations. The Aarti is performed at the ghat with traditional lamps, flowers, incense, and Vedic chants.
+        </p>
+        <ul class="service-card-features mb-4" style="column-count:2; gap:10px;">
+          <li>Full Vedic rituals & mantras</li>
+          <li>Sacred fire (Havan)</li>
+          <li>Traditional brass diyas</li>
+          <li>Flower garland offerings</li>
+          <li>Pandit discourse</li>
+          <li>Photography/video welcome</li>
+          <li>Prasad distribution</li>
+          <li>Customizable duration</li>
+        </ul>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="{% url 'booking' %}" class="btn-primary-custom">
+            <i class="fas fa-calendar-alt"></i> Book Now
+          </a>
+          <a href="https://wa.me/{{ whatsapp_number }}?text=Namaste%21%20I%20want%20to%20inquire%20about%20Wedding%20Ganga%20Aarti%20booking." target="_blank" class="btn-outline-custom">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Birthday Aarti ---- -->
+    <div class="row g-5 align-items-center mb-5 pb-5" style="border-bottom: 1px solid var(--border);">
+      <div class="col-lg-6 order-lg-2 fade-in-up">
+        <div style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg);">
+          <div style="background: linear-gradient(135deg, #c04a00, #e65c00); height: 380px; display:flex; align-items:center; justify-content:center; font-size:10rem;">
+            🎂
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1 fade-in-up">
+        <div class="section-badge">🎂 For All Ages</div>
+        <h2 class="section-title">Birthday <span>Aarti</span></h2>
+        <div class="section-divider left"></div>
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:20px;">
+          Celebrate the gift of life at the holiest of rivers. A Birthday Aarti at the Ganga is a profoundly personal ceremony that invokes divine blessings for health, prosperity and happiness in the coming year. Suitable for all ages — children, adults, and elders alike.
+        </p>
+        <ul class="service-card-features mb-4" style="column-count:2; gap:10px;">
+          <li>Personalized Sankalp</li>
+          <li>Ayushya Homa (lifespan prayer)</li>
+          <li>Flower offerings</li>
+          <li>Sacred dip blessings</li>
+          <li>Aarti at sunrise/sunset</li>
+          <li>Suitable for groups</li>
+          <li>Traditional prasad</li>
+          <li>Joyful atmosphere</li>
+        </ul>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="{% url 'booking' %}" class="btn-primary-custom">
+            <i class="fas fa-calendar-alt"></i> Book Now
+          </a>
+          <a href="https://wa.me/{{ whatsapp_number }}?text=Namaste%21%20I%20want%20to%20book%20a%20Birthday%20Aarti%20in%20Varanasi." target="_blank" class="btn-outline-custom">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Anniversary Aarti ---- -->
+    <div class="row g-5 align-items-center mb-5 pb-5" style="border-bottom: 1px solid var(--border);">
+      <div class="col-lg-6 order-lg-1 fade-in-up">
+        <div style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg);">
+          <div style="background: linear-gradient(135deg, #d99a1b, #f9b733); height: 380px; display:flex; align-items:center; justify-content:center; font-size:10rem;">
+            💑
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-2 fade-in-up">
+        <div class="section-badge" style="background:rgba(249,183,51,0.12); color:var(--secondary-dark); border-color:rgba(249,183,51,0.3);">
+          💑 Couples Special
+        </div>
+        <h2 class="section-title">Anniversary <span>Aarti</span></h2>
+        <div class="section-divider left"></div>
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:20px;">
+          Renew the sacred bond of your marriage on the divine banks of the Ganga. Our Anniversary Aarti ceremony helps couples reconnect spiritually and celebrate the years of love and togetherness. A truly romantic and transcendent experience unlike any other.
+        </p>
+        <ul class="service-card-features mb-4" style="column-count:2; gap:10px;">
+          <li>Couples' Ganga Puja</li>
+          <li>Flower boat ceremony</li>
+          <li>Sacred vow renewal</li>
+          <li>Priest's blessings</li>
+          <li>Romantic atmosphere</li>
+          <li>Sunset/sunrise timing</li>
+          <li>Keepsake prasad box</li>
+          <li>Photography guidance</li>
+        </ul>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="{% url 'booking' %}" class="btn-primary-custom">
+            <i class="fas fa-calendar-alt"></i> Book Now
+          </a>
+          <a href="https://wa.me/{{ whatsapp_number }}?text=Namaste%21%20We%20want%20to%20book%20an%20Anniversary%20Aarti%20ceremony." target="_blank" class="btn-outline-custom">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Spiritual Ceremonies ---- -->
+    <div class="row g-5 align-items-center mb-5 pb-5" style="border-bottom: 1px solid var(--border);">
+      <div class="col-lg-6 order-lg-2 fade-in-up">
+        <div style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg);">
+          <div style="background: linear-gradient(135deg, #5a3010, #e65c00); height: 380px; display:flex; align-items:center; justify-content:center; font-size:10rem;">
+            🕉️
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1 fade-in-up">
+        <div class="section-badge">🕉️ Traditional Pujas</div>
+        <h2 class="section-title">Special <span>Spiritual Ceremonies</span></h2>
+        <div class="section-divider left"></div>
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:20px;">
+          We perform a wide range of traditional Vedic ceremonies including Satyanarayan Puja, Mundan Ceremony, Griha Pravesh, Pitru Paksha Rituals, and more — both at the sacred Varanasi ghats and at your venue upon request.
+        </p>
+        <div class="row g-2 mb-4">
+          <div class="col-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.85rem; font-weight: 500; color: var(--text-body); display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--secondary);">✦</span>
+              Satyanarayan Puja
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.85rem; font-weight: 500; color: var(--text-body); display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--secondary);">✦</span>
+              Mundan Ceremony
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.85rem; font-weight: 500; color: var(--text-body); display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--secondary);">✦</span>
+              Griha Pravesh
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.85rem; font-weight: 500; color: var(--text-body); display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--secondary);">✦</span>
+              Namkaran Puja
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.85rem; font-weight: 500; color: var(--text-body); display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--secondary);">✦</span>
+              Pitru Paksha
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.85rem; font-weight: 500; color: var(--text-body); display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--secondary);">✦</span>
+              Rudrabhishek
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.85rem; font-weight: 500; color: var(--text-body); display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--secondary);">✦</span>
+              Vivah Puja
+            </div>
+          </div>
+          <div class="col-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 10px 14px; font-size: 0.85rem; font-weight: 500; color: var(--text-body); display: flex; align-items: center; gap: 8px;">
+              <span style="color: var(--secondary);">✦</span>
+              Kashi Vishwanath Darshan
+            </div>
+          </div>
+        </div>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="{% url 'booking' %}" class="btn-primary-custom">
+            <i class="fas fa-calendar-alt"></i> Book Now
+          </a>
+          <a href="https://wa.me/{{ whatsapp_number }}?text=Namaste%21%20I%20want%20to%20inquire%20about%20a%20spiritual%20ceremony." target="_blank" class="btn-outline-custom">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---- Satyanarayan Puja ---- -->
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-6 order-lg-1 fade-in-up">
+        <div style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg);">
+          <div style="background: linear-gradient(135deg, #e65c00, #c04a00); height: 380px; display:flex; align-items:center; justify-content:center; font-size:10rem;">
+            🪔
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-2 fade-in-up">
+        <div class="section-badge">🪔 Sacred Ritual</div>
+        <h2 class="section-title">Ganga <span>Evening Aarti Experience</span></h2>
+        <div class="section-divider left"></div>
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:20px;">
+          The grand Ganga Aarti at Dashashwamedh Ghat is one of the world's most spectacular spiritual spectacles. We offer exclusive private seating, personal participation, and a guided experience of the nightly Aarti ceremony.
+        </p>
+        <ul class="service-card-features mb-4">
+          <li>Priority ghat seating arrangement</li>
+          <li>Personal priest guide throughout</li>
+          <li>Diya offering at the ceremony</li>
+          <li>Post-Aarti blessings &amp; prasad</li>
+          <li>Available every evening at sunset</li>
+        </ul>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="{% url 'booking' %}" class="btn-primary-custom">
+            <i class="fas fa-calendar-alt"></i> Book Experience
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CTA SECTION
+============================================================ -->
+<section class="booking-cta-section section-padding">
+  <div class="container text-center position-relative" style="z-index:1;">
+    <div class="fade-in-up">
+      <h2 class="section-title" style="color:white; font-size:clamp(1.8rem,4vw,2.6rem);">
+        Can't Find What You're Looking For?
+      </h2>
+      <p class="mt-2 mb-4" style="color:rgba(255,255,255,0.8); max-width:550px; margin:12px auto 28px;">
+        Every ceremony is unique. Contact us to discuss a custom spiritual service tailored perfectly to your requirements.
+      </p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="{% url 'booking' %}" class="btn-outline-custom" style="border-color:white; color:white;">
+          <i class="fas fa-envelope"></i> Send Inquiry
+        </a>
+        <a href="https://wa.me/{{ whatsapp_number }}?text=Namaste%21%20I%20have%20a%20custom%20ceremony%20request."
+           target="_blank" rel="noopener" class="btn-primary-custom" style="background:white; color:var(--primary);">
+          <i class="fab fa-whatsapp" style="color:#25d366;"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

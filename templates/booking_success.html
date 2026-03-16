@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Booking Confirmed — Kashi Ganga{% endblock %}
+
+{% block content %}
+
+<section class="success-section">
+  <div class="container">
+    <div class="success-card fade-in-up">
+      <span class="success-icon">🙏</span>
+
+      <h1 class="success-title">Jai Ganga Maiya!</h1>
+      <p style="font-size:1.1rem; color:var(--text-muted); margin-bottom:8px;">
+        Your booking request has been submitted successfully.
+      </p>
+      <p style="font-size:0.92rem; color:var(--text-muted); max-width:420px; margin:0 auto 30px;">
+        Our team will review your request and contact you within <strong style="color:var(--primary);">24 hours</strong>
+        to confirm your sacred ceremony details.
+      </p>
+
+      <div style="background:var(--bg-light); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px; margin-bottom:30px;">
+        <p style="font-size:0.9rem; color:var(--text-muted); margin:0;">
+          <i class="fas fa-envelope" style="color:var(--primary); margin-right:8px;"></i>
+          A confirmation will be sent to your email address once the booking is confirmed.
+        </p>
+      </div>
+
+      <div class="divider-golden mb-4"></div>
+
+      <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:16px;">
+        Want a faster response? Chat with us directly:
+      </p>
+
+      <a href="https://wa.me/{{ whatsapp_number }}?text=Namaste%21%20I%20just%20submitted%20a%20booking%20request%20on%20your%20website.%20Please%20confirm%20my%20ceremony."
+         target="_blank" rel="noopener"
+         class="btn-primary-custom justify-content-center mb-3"
+         style="background:#25d366; box-shadow: 0 4px 15px rgba(37,211,102,0.4);">
+        <i class="fab fa-whatsapp" style="font-size:1.1rem;"></i>
+        Follow Up on WhatsApp
+      </a>
+
+      <br />
+      <a href="{% url 'home' %}" class="btn-outline-custom mt-2 justify-content-center">
+        <i class="fas fa-home"></i> Return to Home
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

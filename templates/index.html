@@ -1,0 +1,529 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Kashi Ganga — Divine Aarti & Spiritual Event Services | Varanasi{% endblock %}
+{% block meta_description %}Book authentic Ganga Aarti ceremonies in Varanasi for weddings, birthdays, anniversaries and spiritual events. Experienced priests, sacred rituals, unforgettable divine experiences on the banks of the Ganga.{% endblock %}
+
+{% block content %}
+
+<!-- ============================================================
+     HERO SECTION — Matching the Sacred Ceremony Design
+============================================================ -->
+<section class="hero-section" id="hero">
+
+  <!-- Background Image -->
+  <div class="hero-bg" style="background-image: url('{% static 'images/hero-aarti.jpg' %}');"></div>
+
+  <!-- Gradient Overlay -->
+  <div class="hero-overlay"></div>
+
+  <!-- Main Content -->
+  <div class="hero-content">
+    <!-- Sacred badge line -->
+    <div class="hero-badge">
+      🙏 &nbsp; Sacred Ceremonies &amp; Devotional Services
+    </div>
+
+    <!-- Main Heading -->
+    <h1 class="hero-title">
+      Divine Aarti &amp; <span class="golden">Spiritual</span><br>Event Services
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="hero-subtitle">
+      Bring devotion, positivity, and divine energy to your important life moments
+      through traditional rituals performed by experienced priests.
+    </p>
+
+    <!-- CTA Buttons -->
+    <div class="hero-buttons">
+      <a href="{% url 'services' %}" class="btn-primary-custom">
+        <i class="fas fa-hands-praying"></i> Explore Our Services
+      </a>
+      <a href="{% url 'booking' %}" class="btn-outline-custom">
+        <i class="fas fa-calendar-check"></i> Book Now
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="hero-scroll-indicator" onclick="document.getElementById('services-preview').scrollIntoView({behavior:'smooth'})">
+    🪔
+  </div>
+
+  <!-- Stats bar -->
+  <div class="hero-stats">
+    <div class="container">
+      <div class="row text-center">
+        <div class="col-3">
+          <div class="hero-stat-item">
+            <span class="hero-stat-number">500+</span>
+            <span class="hero-stat-label">Ceremonies</span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="hero-stat-item">
+            <span class="hero-stat-number">15+</span>
+            <span class="hero-stat-label">Years Exp.</span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="hero-stat-item">
+            <span class="hero-stat-number">1000+</span>
+            <span class="hero-stat-label">Happy Families</span>
+          </div>
+        </div>
+        <div class="col-3">
+          <div class="hero-stat-item">
+            <span class="hero-stat-number">4.9★</span>
+            <span class="hero-stat-label">Rating</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICES PREVIEW
+============================================================ -->
+<section class="section-padding bg-light-custom" id="services-preview">
+  <div class="container">
+
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">🪔 Our Sacred Services</div>
+      <h2 class="section-title">Ceremonies for Every <span>Sacred Occasion</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">
+        From intimate birthday blessings to grand wedding ceremonies, we bring the divine
+        energy of the Ganga to your most cherished moments.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <!-- Wedding -->
+      <div class="col-lg-3 col-md-6">
+        <div class="service-card h-100 fade-in-up">
+          <div class="service-card-image" style="background: linear-gradient(135deg, #e65c00, #f9b733);">
+            <div class="service-card-icon">🌸</div>
+            <span class="service-card-badge">Popular</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Wedding Ganga Aarti</h3>
+            <p class="service-card-text">Begin your sacred union with divine blessings from the holy Ganga. A deeply spiritual ceremony for your wedding day.</p>
+            <ul class="service-card-features">
+              <li>Full Vedic rituals</li>
+              <li>Flower & lamp offerings</li>
+              <li>Photography permitted</li>
+              <li>Customizable duration</li>
+            </ul>
+            <a href="{% url 'services' %}" class="btn-primary-custom w-100 justify-content-center">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Birthday -->
+      <div class="col-lg-3 col-md-6">
+        <div class="service-card h-100 fade-in-up">
+          <div class="service-card-image" style="background: linear-gradient(135deg, #c04a00, #e65c00);">
+            <div class="service-card-icon">🎂</div>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Birthday Aarti</h3>
+            <p class="service-card-text">Celebrate the gift of life with divine grace. A heartfelt spiritual ceremony to bless your new year of life.</p>
+            <ul class="service-card-features">
+              <li>Personal blessings</li>
+              <li>Sankalp & prayers</li>
+              <li>Prasad distribution</li>
+              <li>Suitable for all ages</li>
+            </ul>
+            <a href="{% url 'services' %}" class="btn-primary-custom w-100 justify-content-center">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Anniversary -->
+      <div class="col-lg-3 col-md-6">
+        <div class="service-card h-100 fade-in-up">
+          <div class="service-card-image" style="background: linear-gradient(135deg, #d99a1b, #f9b733);">
+            <div class="service-card-icon">💑</div>
+            <span class="service-card-badge" style="background: var(--primary); color: white;">Special</span>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Anniversary Aarti</h3>
+            <p class="service-card-text">Renew your vows and celebrate years of togetherness with divine blessings beside the sacred Ganga.</p>
+            <ul class="service-card-features">
+              <li>Couple's special puja</li>
+              <li>Floral boat offering</li>
+              <li>Sacred vow renewal</li>
+              <li>Memorable experience</li>
+            </ul>
+            <a href="{% url 'services' %}" class="btn-primary-custom w-100 justify-content-center">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spiritual Ceremony -->
+      <div class="col-lg-3 col-md-6">
+        <div class="service-card h-100 fade-in-up">
+          <div class="service-card-image" style="background: linear-gradient(135deg, #5a3010, #e65c00);">
+            <div class="service-card-icon">🕉️</div>
+          </div>
+          <div class="service-card-body">
+            <h3 class="service-card-title">Spiritual Ceremonies</h3>
+            <p class="service-card-text">Satyanarayan Puja, Mundan, Griha Pravesh and other traditional ceremonies performed with devotion.</p>
+            <ul class="service-card-features">
+              <li>All major pujas</li>
+              <li>Vedic pandits</li>
+              <li>Samagri provided</li>
+              <li>At your venue too</li>
+            </ul>
+            <a href="{% url 'services' %}" class="btn-primary-custom w-100 justify-content-center">Inquire Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 fade-in-up">
+      <a href="{% url 'services' %}" class="btn-outline-custom">
+        <i class="fas fa-arrow-right"></i> View All Services
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY CHOOSE US
+============================================================ -->
+<section class="section-padding why-us-section">
+  <div class="container">
+
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge" style="background:rgba(249,183,51,0.12); color:var(--secondary); border-color:rgba(249,183,51,0.3);">
+        ✦ Why Choose Us
+      </div>
+      <h2 class="section-title" style="color:white;">The Kashi Ganga <span style="color:var(--secondary);">Difference</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle" style="color:rgba(255,255,255,0.65);">
+        We combine centuries of Vedic tradition with modern professional service
+        to deliver truly unforgettable spiritual experiences.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-box fade-in-up">
+          <span class="feature-box-icon">🏛️</span>
+          <h4 class="feature-box-title">15+ Years of Tradition</h4>
+          <p class="feature-box-text">Over a decade and a half of conducting sacred ceremonies at the most revered ghats of Varanasi.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-box fade-in-up">
+          <span class="feature-box-icon">📿</span>
+          <h4 class="feature-box-title">Authentic Vedic Rituals</h4>
+          <p class="feature-box-text">Ceremonies performed strictly following traditional Vedic scriptures and time-tested rituals.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-box fade-in-up">
+          <span class="feature-box-icon">🙏</span>
+          <h4 class="feature-box-title">Experienced Priests</h4>
+          <p class="feature-box-text">Our priests are well-versed in multiple rituals and maintain the sanctity of every ceremony.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-box fade-in-up">
+          <span class="feature-box-icon">📅</span>
+          <h4 class="feature-box-title">Flexible Scheduling</h4>
+          <p class="feature-box-text">Early morning to evening, on any auspicious date — we work around your preferred timing.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-box fade-in-up">
+          <span class="feature-box-icon">📸</span>
+          <h4 class="feature-box-title">Photography Friendly</h4>
+          <p class="feature-box-text">Capture every divine moment. Our ceremonies are designed to be visually and spiritually beautiful.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-box fade-in-up">
+          <span class="feature-box-icon">🌸</span>
+          <h4 class="feature-box-title">Complete Arrangements</h4>
+          <p class="feature-box-text">From flowers to diyas and prasad — we handle all ritual materials so you can focus on the moment.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-box fade-in-up">
+          <span class="feature-box-icon">🗺️</span>
+          <h4 class="feature-box-title">On-Site or Destination</h4>
+          <p class="feature-box-text">At the sacred ghats of Varanasi or at your requested venue — we travel to bring the divine to you.</p>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="feature-box fade-in-up">
+          <span class="feature-box-icon">💬</span>
+          <h4 class="feature-box-title">24/7 WhatsApp Support</h4>
+          <p class="feature-box-text">Have a question at any hour? Reach us instantly on WhatsApp for quick and helpful responses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     GALLERY PREVIEW
+============================================================ -->
+<section class="section-padding" style="background: var(--bg-light);">
+  <div class="container">
+
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">📸 Sacred Moments</div>
+      <h2 class="section-title">A Glimpse of <span>Divine Ceremonies</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">Each ceremony is a unique, sacred story. Explore the visual journey of devotion and grace.</p>
+    </div>
+
+    {% if gallery_preview %}
+    <div class="gallery-grid fade-in-up">
+      {% for img in gallery_preview %}
+      <div class="gallery-item">
+        <img src="{{ img.image.url }}" alt="{{ img.title }}" loading="lazy" />
+        <div class="gallery-item-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <span>{{ img.title }}</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <!-- Placeholder gallery if no images uploaded yet -->
+    <div class="gallery-grid fade-in-up">
+      {% for emoji in "🕉️🪔🌸💐🙏🔥"|make_list %}
+      <div class="gallery-item">
+        <div class="gallery-placeholder">{{ emoji }}</div>
+        <div class="gallery-item-overlay">
+          <i class="fas fa-expand-alt"></i>
+          <span>Sacred Ceremony</span>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="text-center mt-5 fade-in-up">
+      <a href="{% url 'gallery' %}" class="btn-primary-custom">
+        <i class="fas fa-images"></i> View Full Gallery
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TESTIMONIALS
+============================================================ -->
+<section class="section-padding testimonials-section">
+  <div class="container">
+
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">💛 Testimonials</div>
+      <h2 class="section-title">Blessings Shared by <span>Devotees</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">Hear from our blessed families who experienced the divine grace of Ganga Aarti.</p>
+    </div>
+
+    {% if testimonials %}
+    <div class="row g-4">
+      {% for t in testimonials %}
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card fade-in-up">
+          <div class="testimonial-stars">
+            {% for i in "12345"|make_list %}
+              {% if forloop.counter <= t.rating %}
+                <i class="fas fa-star"></i>
+              {% else %}
+                <i class="far fa-star"></i>
+              {% endif %}
+            {% endfor %}
+          </div>
+          <p class="testimonial-text">"{{ t.message }}"</p>
+          <div class="testimonial-author">
+            {% if t.image %}
+              <img src="{{ t.image.url }}" alt="{{ t.name }}" class="testimonial-author-img" />
+            {% else %}
+              <div class="testimonial-author-avatar">{{ t.name|first }}</div>
+            {% endif %}
+            <div>
+              <div class="testimonial-author-name">{{ t.name }}</div>
+              <div class="testimonial-author-event">{{ t.event_type }}{% if t.location %} · {{ t.location }}{% endif %}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <!-- Default testimonials when database is empty -->
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card fade-in-up">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"The ceremony was absolutely magical. The priests were so dedicated and the atmosphere at the ghats was heavenly. Our wedding became truly divine."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">P</div>
+            <div>
+              <div class="testimonial-author-name">Priya Sharma</div>
+              <div class="testimonial-author-event">Wedding Aarti · Jaipur</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card fade-in-up">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"We celebrated our 10th anniversary here and it was the most peaceful and meaningful experience. The Ganga Aarti made it truly unforgettable."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">R</div>
+            <div>
+              <div class="testimonial-author-name">Rahul &amp; Anjali</div>
+              <div class="testimonial-author-event">Anniversary Aarti · Delhi</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6">
+        <div class="testimonial-card fade-in-up">
+          <div class="testimonial-stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+          <p class="testimonial-text">"Booked a birthday Aarti for my mother and she was moved to tears. The priests were knowledgeable and warm. An absolutely spiritual experience."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-author-avatar">S</div>
+            <div>
+              <div class="testimonial-author-name">Suresh Patel</div>
+              <div class="testimonial-author-event">Birthday Aarti · Mumbai</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+
+<!-- ============================================================
+     BOOKING CTA BANNER
+============================================================ -->
+<section class="booking-cta-section section-padding">
+  <div class="container text-center position-relative" style="z-index:1;">
+    <div class="fade-in-up">
+      <p class="mb-2" style="color:rgba(255,255,255,0.8); font-size:0.9rem; letter-spacing:3px; text-transform:uppercase; font-family:var(--font-accent);">
+        ✦ &nbsp; Begin Your Sacred Journey &nbsp; ✦
+      </p>
+      <h2 class="section-title" style="color:white; font-size:clamp(2rem,5vw,3rem);">
+        Ready to Experience the <br>Divine Grace of Ganga Aarti?
+      </h2>
+      <p class="mt-3 mb-4" style="color:rgba(255,255,255,0.85); font-size:1.05rem; max-width:600px; margin:16px auto 32px;">
+        Submit your booking request today and our team will reach out within 24 hours to
+        confirm your sacred ceremony.
+      </p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="{% url 'booking' %}" class="btn-outline-custom" style="border-color:white; color:white;">
+          <i class="fas fa-calendar-alt"></i> Book a Ceremony
+        </a>
+        <a href="https://wa.me/{{ whatsapp_number }}?text=Namaste%21%20I%20want%20to%20book%20a%20Ganga%20Aarti%20ceremony.%20Please%20guide%20me."
+           target="_blank" rel="noopener"
+           class="btn-primary-custom" style="background:white; color:var(--primary);">
+          <i class="fab fa-whatsapp" style="color:#25d366;"></i> WhatsApp Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     LOCATION / MAP
+============================================================ -->
+<section class="section-padding">
+  <div class="container">
+
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">📍 Find Us</div>
+      <h2 class="section-title">Sacred Location — <span>Varanasi Ghats</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">Located at the most sacred ghats on the banks of the holy Ganga in Varanasi (Kashi).</p>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <!-- Map -->
+      <div class="col-lg-8 fade-in-up">
+        <div class="map-embed h-100" style="min-height:380px;">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.9455940939456!2d83.00641797509698!3d25.30827772823738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2db76febcf4d%3A0x5688982a74fb21ad!2sDashashwamedha%20Ghat%2C%20Varanasi%2C%20Uttar%20Pradesh%20221001!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
+            width="100%" height="100%" style="min-height:380px; border:0; display:block;" allowfullscreen
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- Info card -->
+      <div class="col-lg-4 fade-in-up">
+        <div class="map-info-card">
+          <h4 style="font-family:var(--font-heading); color:var(--dark-mid); margin-bottom:20px;">
+            Visit Us at the Ghats
+          </h4>
+
+          <div class="map-info-item">
+            <div class="map-info-icon"><i class="fas fa-map-marker-alt"></i></div>
+            <div class="map-info-content">
+              <strong>Address</strong>
+              <span>Dashashwamedh Ghat, Varanasi, UP 221001</span>
+            </div>
+          </div>
+
+          <div class="map-info-item">
+            <div class="map-info-icon"><i class="fas fa-phone-alt"></i></div>
+            <div class="map-info-content">
+              <strong>Phone</strong>
+              <span>+91 98765 43210</span>
+            </div>
+          </div>
+
+          <div class="map-info-item">
+            <div class="map-info-icon"><i class="fas fa-envelope"></i></div>
+            <div class="map-info-content">
+              <strong>Email</strong>
+              <span>booking@kashiganga.in</span>
+            </div>
+          </div>
+
+          <div class="map-info-item">
+            <div class="map-info-icon"><i class="fas fa-clock"></i></div>
+            <div class="map-info-content">
+              <strong>Ceremony Timings</strong>
+              <span>Early Morning (5–7 AM), Evening (6–8 PM)</span>
+            </div>
+          </div>
+
+          <div class="map-info-item">
+            <div class="map-info-icon"><i class="fas fa-calendar-check"></i></div>
+            <div class="map-info-content">
+              <strong>Availability</strong>
+              <span>All 7 days — year round</span>
+            </div>
+          </div>
+
+          <a href="{% url 'booking' %}" class="btn-primary-custom w-100 justify-content-center mt-4">
+            <i class="fas fa-hands-praying"></i> Book a Ceremony
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}
