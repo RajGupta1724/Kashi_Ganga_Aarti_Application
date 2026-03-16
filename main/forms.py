@@ -25,7 +25,7 @@ class BookingForm(forms.ModelForm):
             }),
             'phone': forms.TextInput(attrs={
                 'class': 'form-control',
-                'placeholder': '+91 98765 43210',
+                'placeholder': '+91 92350 54005',
             }),
             'email': forms.EmailInput(attrs={
                 'class': 'form-control',

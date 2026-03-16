@@ -143,7 +143,7 @@ Log in with the superuser credentials you created. You can:
 
 Update the WhatsApp number in `.env`:
 ```
-WHATSAPP_NUMBER=919876543210
+WHATSAPP_NUMBER=919235054005
 ```
 (Country code + number, no `+` sign or spaces)
 

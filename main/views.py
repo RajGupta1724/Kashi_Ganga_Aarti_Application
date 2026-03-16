@@ -8,7 +8,7 @@ from .models import Testimonial, GalleryImage
 def index(request):
     testimonials = Testimonial.objects.filter(is_active=True)[:6]
     gallery_preview = GalleryImage.objects.filter(is_active=True)[:6]
-    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919876543210')
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
     return render(request, 'index.html', {
         'testimonials': testimonials,
         'gallery_preview': gallery_preview,
@@ -21,7 +21,7 @@ def home(request):
 
 
 def services(request):
-    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919876543210')
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
     return render(request, 'services.html', {'whatsapp_number': whatsapp_number})
 
 
@@ -43,7 +43,7 @@ def about(request):
 
 
 def booking(request):
-    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919876543210')
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
     if request.method == 'POST':
         form = BookingForm(request.POST)
         if form.is_valid():
@@ -59,5 +59,5 @@ def booking(request):
 
 
 def booking_success(request):
-    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919876543210')
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
     return render(request, 'booking_success.html', {'whatsapp_number': whatsapp_number})

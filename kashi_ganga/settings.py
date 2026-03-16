@@ -101,7 +101,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # WhatsApp contact number
-WHATSAPP_NUMBER = os.environ.get('WHATSAPP_NUMBER', '919876543210')
+WHATSAPP_NUMBER = os.environ.get('WHATSAPP_NUMBER', '919235054005')
 
 # Google Maps API Key
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY', '')
