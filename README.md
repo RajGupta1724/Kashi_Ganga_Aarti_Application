@@ -185,35 +185,35 @@ For production:
 
 ## Deploy On Render
 
-This repository is ready for Render deployment using the included `render.yaml`.
-
-### Option A: One-click Blueprint Deploy (recommended)
-1. Push latest code to GitHub.
-2. In Render dashboard, click `New` -> `Blueprint`.
-3. Select this repository.
-4. Render will detect `render.yaml` and create:
-	- Web service: `kashi-ganga-aarti-app`
-	- PostgreSQL database: `kashi-ganga-db`
-5. Click `Apply` to deploy.
-
-### Option B: Manual Web Service
+### Manual Web Service Setup
 1. Create a new `Web Service` in Render from this repo.
 2. Use:
 	- Build Command:
 	  `pip install -r requirements.txt && python manage.py migrate && python manage.py collectstatic --noinput`
 	- Start Command:
 	  `gunicorn kashi_ganga.wsgi:application`
+    - Health Check Path:
+      `/health/`
 3. Add environment variables:
 	- `DEBUG=False`
 	- `SECRET_KEY=<secure-random-string>`
 	- `ALLOWED_HOSTS=<your-render-domain>`
 	- `WHATSAPP_NUMBER=919235054005`
 	- `DATABASE_URL=<render-postgres-connection-string>`
+4. Create a PostgreSQL database in Render and copy its `External Database URL` into `DATABASE_URL`.
 
 ### After First Deploy
 1. Open service shell and run:
 	`python manage.py createsuperuser`
 2. Log in at `/admin/`.
+
+### Add Custom Domain Later
+1. In Render -> your web service -> `Settings` -> `Custom Domains`.
+2. Add your domain (for example `app.yourdomain.com`).
+3. Add the DNS record in your domain provider exactly as Render shows.
+4. Update `ALLOWED_HOSTS` env var to include both domains, comma-separated:
+   `your-render-service.onrender.com,app.yourdomain.com`
+5. Redeploy the service.
 
 ---
 

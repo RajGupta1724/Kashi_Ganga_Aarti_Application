@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.http import JsonResponse
 from django.conf import settings
 from django.contrib import messages
 from .forms import BookingForm
@@ -61,3 +62,7 @@ def booking(request):
 def booking_success(request):
     whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
     return render(request, 'booking_success.html', {'whatsapp_number': whatsapp_number})
+
+
+def health(request):
+    return JsonResponse({'status': 'ok'})
