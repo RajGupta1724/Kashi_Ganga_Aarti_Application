@@ -143,13 +143,22 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = env_bool('SECURE_HSTS_INCLUDE_SUBDOMAINS', default=True)
     SECURE_HSTS_PRELOAD = env_bool('SECURE_HSTS_PRELOAD', default=True)
 
-# WhatsApp contact number
 WHATSAPP_NUMBER = os.environ.get('WHATSAPP_NUMBER', '919235054005')
-
-# Google Maps API Key
 GOOGLE_MAPS_API_KEY = os.environ.get('GOOGLE_MAPS_API_KEY', '')
-
-# Admin site customization
 ADMIN_SITE_HEADER = "Kashi Ganga Admin Panel"
 ADMIN_SITE_TITLE = "Kashi Ganga"
 ADMIN_INDEX_TITLE = "Admin Dashboard"
+
+# CSRF and session settings for production
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+SECURE_SSL_REDIRECT = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_HSTS_SECONDS = 31536000
+SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+SECURE_HSTS_PRELOAD = True
+
+# Add your domain to CSRF trusted origins
+CSRF_TRUSTED_ORIGINS += [
+    'https://kashigangaaarti.in',
+]
