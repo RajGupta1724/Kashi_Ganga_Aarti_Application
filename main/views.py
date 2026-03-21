@@ -1,9 +1,4 @@
-# Legal pages
-def disclaimer(request):
-    return render(request, 'disclaimer.html')
 
-def privacy_policy(request):
-    return render(request, 'privacy_policy.html')
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.conf import settings
@@ -47,16 +42,21 @@ def gallery(request):
 
 def about(request):
     return render(request, 'about.html')
-
-
-
-                request,
-                'Your booking request has been submitted! We will contact you shortly. 🙏'
-            )
-            return redirect('booking_success')
-    else:
-        form = BookingForm()
-    return render(request, 'booking.html', {'form': form, 'whatsapp_number': whatsapp_number})
+    
+    def booking(request):
+        whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
+        if request.method == 'POST':
+            form = BookingForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(
+                    request,
+                    'Your booking request has been submitted! We will contact you shortly. 🙏'
+                )
+                return redirect('booking_success')
+        else:
+            form = BookingForm()
+        return render(request, 'booking.html', {'form': form, 'whatsapp_number': whatsapp_number})
 
 
 def booking_success(request):
