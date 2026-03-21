@@ -1,3 +1,17 @@
+def kashi_ganga_aarti_timing(request):
+    return render(request, 'kashi_ganga_aarti_timing.html')
+
+def ganga_aarti_booking(request):
+    return render(request, 'ganga_aarti_booking.html')
+
+def dashashwamedh_ghat_aarti(request):
+    return render(request, 'dashashwamedh_ghat_aarti.html')
+
+def disclaimer(request):
+    return render(request, 'disclaimer.html')
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
 
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
