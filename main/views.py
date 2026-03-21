@@ -43,13 +43,7 @@ def about(request):
     return render(request, 'about.html')
 
 
-def booking(request):
-    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
-    if request.method == 'POST':
-        form = BookingForm(request.POST)
-        if form.is_valid():
-            form.save()
-            messages.success(
+
                 request,
                 'Your booking request has been submitted! We will contact you shortly. 🙏'
             )

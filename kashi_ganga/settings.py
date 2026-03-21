@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get(
     'django-insecure-kashi-ganga-aarti-change-in-production'
 )
 
-DEBUG = True
+DEBUG = False
 
 default_hosts = '127.0.0.1,localhost'
 allowed_hosts = os.environ.get('ALLOWED_HOSTS', default_hosts)
