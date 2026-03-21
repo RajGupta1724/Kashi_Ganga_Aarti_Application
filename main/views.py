@@ -39,16 +39,6 @@ def home(request):
     return index(request)
 
 
-# --- robots.txt view for SEO ---
-from django.http import HttpResponse
-
-def robots_txt(request):
-    content = (
-        "User-agent: *\n"
-        "Allow: /\n"
-        "Sitemap: https://kashigangaaarti.in/sitemap.xml\n"
-    )
-    return HttpResponse(content, content_type="text/plain")
 
 def services(request):
     whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')

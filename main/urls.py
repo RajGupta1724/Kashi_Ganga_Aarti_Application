@@ -18,6 +18,4 @@ urlpatterns = [
     # Legal pages
     path('disclaimer/', views.disclaimer, name='disclaimer'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
-    # robots.txt for SEO
-    path('robots.txt', views.robots_txt, name='robots_txt'),
 ]
