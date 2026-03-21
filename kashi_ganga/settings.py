@@ -31,13 +31,12 @@ SECRET_KEY = os.environ.get(
 
 DEBUG = False
 
-default_hosts = '127.0.0.1,localhost'
-allowed_hosts = os.environ.get('ALLOWED_HOSTS', default_hosts)
-ALLOWED_HOSTS = [host.strip() for host in allowed_hosts.split(',') if host.strip()]
-
-render_external_hostname = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if render_external_hostname and render_external_hostname not in ALLOWED_HOSTS:
-    ALLOWED_HOSTS.append(render_external_hostname)
+ALLOWED_HOSTS = [
+    'kashigangaaarti.in',
+    'www.kashigangaaarti.in',
+    '127.0.0.1',
+    'localhost'
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
