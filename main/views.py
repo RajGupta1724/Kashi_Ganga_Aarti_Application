@@ -19,30 +19,14 @@ def index(request):
 
 
 def home(request):
-    return index(request)
 
-
-def services(request):
-    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
-    return render(request, 'services.html', {'whatsapp_number': whatsapp_number})
-
-
-def gallery(request):
-    category = request.GET.get('category', 'all')
-    images = GalleryImage.objects.filter(is_active=True)
-    if category != 'all':
-        images = images.filter(category=category)
-    categories = GalleryImage.CATEGORY_CHOICES
-    return render(request, 'gallery.html', {
-        'images': images,
-        'categories': categories,
         'active_category': category,
     })
 
 
 def about(request):
     return render(request, 'about.html')
-    
+   
     def booking(request):
         whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
         if request.method == 'POST':
