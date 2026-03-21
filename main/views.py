@@ -18,18 +18,46 @@ def index(request):
     })
 
 
+def about(request):
+    return render(request, 'about.html')
+
 def home(request):
+    return index(request)
+
+def services(request):
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
+    return render(request, 'services.html', {'whatsapp_number': whatsapp_number})
+
+def gallery(request):
+    category = request.GET.get('category', 'all')
+    images = GalleryImage.objects.filter(is_active=True)
+    if category != 'all':
+        images = images.filter(category=category)
+    categories = GalleryImage.CATEGORY_CHOICES
+    return render(request, 'gallery.html', {
+        'images': images,
+        'categories': categories,
         'active_category': category,
     })
 
+def booking(request):
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(
+                request,
+                'Your booking request has been submitted! We will contact you shortly. 🙏'
+            )
+            return redirect('booking_success')
+    else:
+        form = BookingForm()
+    return render(request, 'booking.html', {'form': form, 'whatsapp_number': whatsapp_number})
 
-def about(request):
-    return render(request, 'about.html')
-   
-    def booking(request):
-        whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
-        if request.method == 'POST':
-            form = BookingForm(request.POST)
-            if form.is_valid():
-                form.save()
-        else:
+def booking_success(request):
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
+    return render(request, 'booking_success.html', {'whatsapp_number': whatsapp_number})
+
+def health(request):
+    return JsonResponse({'status': 'ok'})
