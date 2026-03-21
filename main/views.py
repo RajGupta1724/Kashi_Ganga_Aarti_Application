@@ -19,7 +19,6 @@ def index(request):
 
 
 def home(request):
-
         'active_category': category,
     })
 
@@ -33,20 +32,4 @@ def about(request):
             form = BookingForm(request.POST)
             if form.is_valid():
                 form.save()
-                messages.success(
-                    request,
-                    'Your booking request has been submitted! We will contact you shortly. 🙏'
-                )
-                return redirect('booking_success')
         else:
-            form = BookingForm()
-        return render(request, 'booking.html', {'form': form, 'whatsapp_number': whatsapp_number})
-
-
-def booking_success(request):
-    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
-    return render(request, 'booking_success.html', {'whatsapp_number': whatsapp_number})
-
-
-def health(request):
-    return JsonResponse({'status': 'ok'})
