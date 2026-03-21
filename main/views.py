@@ -1,3 +1,9 @@
+# Legal pages
+def disclaimer(request):
+    return render(request, 'disclaimer.html')
+
+def privacy_policy(request):
+    return render(request, 'privacy_policy.html')
 from django.shortcuts import render, redirect
 from django.http import JsonResponse
 from django.conf import settings
