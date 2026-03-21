@@ -59,3 +59,6 @@ class GalleryImageAdmin(admin.ModelAdmin):
     search_fields = ('title', 'caption')
     list_editable = ('order', 'is_active')
     ordering      = ('order', '-created_at')
+    
+
+   

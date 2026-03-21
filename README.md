@@ -4,6 +4,7 @@ A Django web application for booking sacred Ganga Aarti ceremonies in Varanasi.
 
 ---
 
+
 ## Project Structure
 
 ```
