@@ -1,3 +1,9 @@
+# Sitemap XML view
+from django.template.loader import render_to_string
+
+def sitemap_xml(request):
+    xml = render_to_string('sitemap.xml')
+    return HttpResponse(xml, content_type='application/xml')
 def kashi_ganga_aarti_timing(request):
     return render(request, 'kashi_ganga_aarti_timing.html')
 
@@ -37,6 +43,18 @@ def about(request):
 
 def home(request):
     return index(request)
+
+
+# robots.txt view for SEO
+from django.http import HttpResponse
+
+def robots_txt(request):
+    content = (
+        "User-agent: *\n"
+        "Allow: /\n"
+        "Sitemap: https://kashigangaaarti.in/sitemap.xml\n"
+    )
+    return HttpResponse(content, content_type="text/plain")
 
 
 
