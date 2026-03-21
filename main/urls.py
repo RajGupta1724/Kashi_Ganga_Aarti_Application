@@ -1,5 +1,6 @@
 from django.urls import path
 from . import views
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('',           views.index,           name='index'),
@@ -19,4 +20,5 @@ urlpatterns = [
     # Legal pages
     path('disclaimer/', views.disclaimer, name='disclaimer'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
+   
 ]

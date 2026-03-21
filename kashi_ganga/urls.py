@@ -1,6 +1,7 @@
 
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import TemplateView
 from main.views import robots_txt, sitemap_xml  # 👈 ADD THIS
 
 urlpatterns = [
@@ -12,4 +13,5 @@ urlpatterns = [
 
     # 👇 All other routes
     path('', include('main.urls')),
+     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 ]
