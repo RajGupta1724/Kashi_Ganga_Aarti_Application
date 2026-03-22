@@ -62,25 +62,43 @@
     {% else %}
     <!-- Placeholder gallery when no images uploaded yet -->
     <div class="gallery-page-grid" id="galleryGrid">
-      {% for item in placeholder_items %}
+      <!-- Wedding Images -->
       <div class="gallery-page-item fade-in-up">
-        <div class="gallery-placeholder-grid">{{ item }}</div>
+        <img src="{% static 'images/wedd.jpeg' %}" alt="Wedding Ceremony" loading="lazy" />
         <div class="overlay">
           <i class="fas fa-images"></i>
-          <span>Sacred Ceremony</span>
+          <span>Wedding Ceremony</span>
         </div>
       </div>
-      {% empty %}
-      {% for emoji in "🔥🪔🌸💐🕉️🙏🌅🎆🌺🏛️🛕✨" %}
       <div class="gallery-page-item fade-in-up">
-        <div class="gallery-placeholder-grid">{{ emoji }}</div>
+        <img src="{% static 'images/wedding.jpeg' %}" alt="Wedding Rituals" loading="lazy" />
         <div class="overlay">
           <i class="fas fa-images"></i>
-          <span>Sacred Ceremony</span>
+          <span>Wedding Rituals</span>
         </div>
       </div>
-      {% endfor %}
-      {% endfor %}
+      <!-- Aarti Images -->
+      <div class="gallery-page-item fade-in-up">
+        <img src="{% static 'images/aarti.jpeg' %}" alt="Ganga Aarti" loading="lazy" />
+        <div class="overlay">
+          <i class="fas fa-images"></i>
+          <span>Ganga Aarti</span>
+        </div>
+      </div>
+      <div class="gallery-page-item fade-in-up">
+        <img src="{% static 'images/aarti2.jpeg' %}" alt="Evening Aarti" loading="lazy" />
+        <div class="overlay">
+          <i class="fas fa-images"></i>
+          <span>Evening Aarti</span>
+        </div>
+      </div>
+      <div class="gallery-page-item fade-in-up">
+        <img src="{% static 'images/hero-aarti.jpg' %}" alt="Hero Aarti" loading="lazy" />
+        <div class="overlay">
+          <i class="fas fa-images"></i>
+          <span>Hero Aarti</span>
+        </div>
+      </div>
     </div>
 
     <div class="text-center mt-5 fade-in-up">
