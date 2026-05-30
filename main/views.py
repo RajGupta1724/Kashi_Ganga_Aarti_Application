@@ -4,13 +4,16 @@ from django.db.models import Avg
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
+from django.utils import timezone
 
 from .forms import BookingForm, ServiceReviewForm
 from .models import GalleryImage, ServiceReview, Testimonial
 
 
 def sitemap_xml(request):
-    xml = render_to_string('sitemap.xml', request=request)
+    # Use current timezone-aware timestamp for sitemap <lastmod>
+    lastmod_now = timezone.now().isoformat()
+    xml = render_to_string('sitemap.xml', {'lastmod_now': lastmod_now}, request=request)
     return HttpResponse(xml, content_type='application/xml')
 
 
