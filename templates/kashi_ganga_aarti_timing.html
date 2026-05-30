@@ -1,5 +1,35 @@
 {% extends "base.html" %}
-{% block title %}Kashi Ganga Aarti Timing | Varanasi Aarti Schedule{% endblock %}
+{% load static %}
+{% block title %}Ganga Aarti Timing & Schedule | Varanasi Daily Ceremony - Kashi Ganga{% endblock %}
+{% block meta_description %}Ganga Aarti timings in Varanasi: Morning aarti at 5:00 AM, Evening ceremony 6:00-7:30 PM depending on season. Plan your visit to the holy ghats.{% endblock %}
+{% block meta_keywords %}Ganga Aarti Timing, Varanasi Aarti Schedule, Ceremony Hours, Daily Spiritual Rituals, Best Time Visit Varanasi, Ghat Timings{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-aarti.jpg' %}{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": "Ganga Aarti Ceremony",
+  "description": "Daily sacred Ganga Aarti ceremony performed at Varanasi ghats",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Varanasi Ghats",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Varanasi",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "IN"
+    }
+  },
+  "startDate": "2026-01-01T05:00:00",
+  "endDate": "2026-12-31T19:00:00",
+  "recurrenceRule": "FREQ=DAILY",
+  "offers": {"@type": "Offer", "url": "{{ request.scheme }}://{{ request.get_host }}/ganga-aarti-booking/", "price": "0", "priceCurrency": "INR"}
+}
+</script>
+{% endblock %}
 {% block content %}
 <h1>Kashi Ganga Aarti Timing</h1>
 <p>Discover the exact timings for the mesmerizing Ganga Aarti in Varanasi. Plan your visit to witness this spiritual spectacle at the right moment.</p>

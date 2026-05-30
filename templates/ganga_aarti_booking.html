@@ -1,5 +1,30 @@
 {% extends "base.html" %}
-{% block title %}Ganga Aarti Booking | Reserve Your Spot{% endblock %}
+{% load static %}
+{% block title %}Book Ganga Aarti Experience | Varanasi Evening Ceremony Seats - Kashi Ganga{% endblock %}
+{% block meta_description %}Reserve your seat for the sacred Ganga Aarti ceremony in Varanasi. Choose from general, VIP, and boat seating options. Authentic spiritual experience on the holy Ganga.{% endblock %}
+{% block meta_keywords %}Ganga Aarti Booking, Varanasi Ceremony Seats, VIP Ghat Seating, Boat Booking, Sacred Ceremony Experience, Spiritual Tourism{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/aarti2.jpeg' %}{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EventVenue",
+  "name": "Varanasi Ganga Aarti",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Dashashwamedh Ghat, Assi Ghat",
+    "addressLocality": "Varanasi",
+    "addressRegion": "Uttar Pradesh",
+    "addressCountry": "IN"
+  },
+  "ticketingPolicy": {
+    "@type": "PriceSpecification",
+    "priceCurrency": "INR",
+    "price": "0-1000"
+  }
+}
+</script>
+{% endblock %}
 {% block content %}
 <h1>Ganga Aarti Booking</h1>
 <p>Book your seat for the sacred Ganga Aarti in Varanasi. Experience the spiritual energy up close!</p>

@@ -1,8 +1,34 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}About Us — Kashi Ganga Sacred Ceremony Services{% endblock %}
-{% block meta_description %}Learn about Kashi Ganga — our team of experienced Vedic priests, our 15+ year legacy of sacred Ganga Aarti ceremonies, and our mission to bring divine blessings to your life moments.{% endblock %}
+{% block title %}About Kashi Ganga — Vedic Priests & Sacred Ceremony Services{% endblock %}
+{% block meta_description %}Discover Kashi Ganga's heritage of authentic Vedic ceremonies, experienced priests, and sacred Ganga Aarti traditions serving Varanasi for generations.{% endblock %}
+{% block meta_keywords %}Vedic Priests Varanasi, Authentic Ganga Aarti, Sacred Ceremony Services, Hindu Rituals, Spiritual Traditions, Varanasi Heritage{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-aarti.jpg' %}{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Kashi Ganga",
+  "description": "Professional Vedic ceremony and sacred Ganga Aarti services in Varanasi",
+  "url": "{{ request.scheme }}://{{ request.get_host }}",
+  "logo": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo.png' %}",
+  "sameAs": [
+    "https://www.facebook.com/kashiganga",
+    "https://www.instagram.com/kashiganga"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Assi Ghat",
+    "addressLocality": "Varanasi",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "221005",
+    "addressCountry": "IN"
+  }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

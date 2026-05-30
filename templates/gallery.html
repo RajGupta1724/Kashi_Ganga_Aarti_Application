@@ -1,8 +1,24 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Gallery — Sacred Ceremony Photos | Kashi Ganga{% endblock %}
-{% block meta_description %}View photos and videos of our sacred Ganga Aarti ceremonies — weddings, birthdays, anniversaries and spiritual events at the holy ghats of Varanasi.{% endblock %}
+{% block title %}Ceremony Photo Gallery | Sacred Ganga Aarti Moments - Kashi Ganga{% endblock %}
+{% block meta_description %}Explore stunning photos of authentic Ganga Aarti ceremonies: weddings, birthdays, anniversaries, and spiritual events performed at the sacred ghats of Varanasi.{% endblock %}
+{% block meta_keywords %}Ganga Aarti Photos, Varanasi Ceremony Gallery, Wedding Photography, Sacred Moments, Temple Photography, Divine Ceremonies{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/aarti.jpeg' %}{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ImageGallery",
+  "name": "Kashi Ganga Ceremony Gallery",
+  "description": "A collection of sacred ceremony moments from Ganga Aarti and spiritual rituals",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kashi Ganga"
+  }
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

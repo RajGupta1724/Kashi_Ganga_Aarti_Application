@@ -1,9 +1,27 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Our Services — Wedding, Birthday & Spiritual Aarti | Kashi Ganga{% endblock %}
-{% block meta_description %}Explore Kashi Ganga's services: Wedding Ganga Aarti, Birthday Aarti, Anniversary Aarti, Satyanarayan Puja, and special spiritual ceremonies in Varanasi.{% endblock %}
-{% block meta_keywords %}Wedding Ganga Aarti, Birthday Puja Varanasi, Anniversary Ceremony, Satyanarayan Puja Booking, Spiritual Ceremony Varanasi{% endblock %}
+{% block title %}Spiritual Services — Wedding, Birthday & Ceremony Aarti | Kashi Ganga{% endblock %}
+{% block meta_description %}Authentic Ganga Aarti services in Varanasi: Wedding Aarti, Birthday Puja, Anniversary Ceremony, Satyanarayan Puja, and spiritual ceremonies by experienced Vedic priests.{% endblock %}
+{% block meta_keywords %}Wedding Ganga Aarti Varanasi, Birthday Aarti Booking, Anniversary Ceremony, Spiritual Puja Services, Satyanarayan Puja Varanasi, Vedic Priests{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/wedding.jpeg' %}{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kashi Ganga",
+  "description": "Authentic Ganga Aarti services and spiritual ceremonies",
+  "areaServed": "Varanasi, India",
+  "availableService": [
+    {"@type": "Service", "name": "Wedding Ganga Aarti"},
+    {"@type": "Service", "name": "Birthday Aarti Ceremony"},
+    {"@type": "Service", "name": "Anniversary Ceremony"},
+    {"@type": "Service", "name": "Spiritual Puja Services"}
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

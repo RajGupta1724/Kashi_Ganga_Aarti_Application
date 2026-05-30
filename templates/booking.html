@@ -1,8 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Book a Ceremony — Kashi Ganga Aarti Service{% endblock %}
-{% block meta_description %}Submit your Ganga Aarti booking request for wedding, birthday, anniversary or spiritual ceremony. Fill in the form and our team will contact you within 24 hours.{% endblock %}
+{% block title %}Book Ganga Aarti Ceremony | Varanasi Sacred Services - Kashi Ganga{% endblock %}
+{% block meta_description %}Reserve your sacred Ganga Aarti ceremony: weddings, birthdays, anniversaries, and spiritual services. Our Varanasi team responds within 24 hours to confirm your booking.{% endblock %}
+{% block meta_keywords %}Book Ganga Aarti, Ceremony Booking Varanasi, Reserve Sacred Services, Wedding Booking, Spiritual Ceremony Reservation{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/wedd.jpeg' %}{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Ganga Aarti Ceremony Booking",
+  "description": "Book authentic sacred Ganga Aarti ceremonies and spiritual services",
+  "provider": {
+    "@type": "LocalBusiness",
+    "name": "Kashi Ganga",
+    "areaServed": "Varanasi"
+  },
+  "areaServed": "Varanasi, India"
+}
+</script>
+{% endblock %}
 
 {% block content %}
 

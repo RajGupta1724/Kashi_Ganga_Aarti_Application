@@ -25,6 +25,23 @@
   <!-- Canonical -->
   <link rel="canonical" href="{% block canonical %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}" />
 
+  <!-- Sitemap & Robots -->
+  <link rel="sitemap" href="{% url 'sitemap' %}" />
+  <link rel="alternate" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}" hreflang="en-IN" />
+  
+  <!-- Geographic & Contact Info -->
+  <meta name="geo.placename" content="Varanasi, Uttar Pradesh, India" />
+  <meta name="geo.region" content="IN-UP" />
+  <meta name="geo.position" content="25.3201;82.9995" />
+  <meta name="ICBM" content="25.3201, 82.9995" />
+  <meta name="contact" content="rajgupta1782005@gmail.com" />
+  <meta name="organization" content="Kashi Ganga" />
+
+  <!-- Technical SEO -->
+  <link rel="dns-prefetch" href="//cdn.jsdelivr.net" />
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com" />
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+
   {% block extra_head %}{% endblock %}
 
   <!-- Google Fonts -->
