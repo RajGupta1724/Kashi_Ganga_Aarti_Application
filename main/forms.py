@@ -1,6 +1,7 @@
 from django import forms
-from .models import Booking
 import datetime
+
+from .models import Booking, ServiceReview
 
 
 class BookingForm(forms.ModelForm):
@@ -66,3 +67,39 @@ class BookingForm(forms.ModelForm):
         if len(digits) < 9 or len(digits) > 15:
             raise forms.ValidationError("Enter a valid phone number (9–15 digits).")
         return phone
+
+
+class ServiceReviewForm(forms.ModelForm):
+    rating = forms.ChoiceField(
+        choices=[(5, '5 - Excellent'), (4, '4 - Very Good'), (3, '3 - Good'), (2, '2 - Fair'), (1, '1 - Needs Improvement')],
+        widget=forms.Select(attrs={'class': 'form-control form-select'}),
+    )
+
+    class Meta:
+        model = ServiceReview
+        fields = ['name', 'service_type', 'rating', 'review', 'location']
+        widgets = {
+            'name': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Your name',
+            }),
+            'service_type': forms.Select(attrs={
+                'class': 'form-control form-select',
+            }),
+            'review': forms.Textarea(attrs={
+                'class': 'form-control',
+                'rows': 4,
+                'placeholder': 'Tell visitors what you liked about the service...',
+            }),
+            'location': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'City / Location (optional)',
+            }),
+        }
+        labels = {
+            'name': 'Your Name',
+            'service_type': 'Service You Used',
+            'rating': 'Rating',
+            'review': 'Your Review',
+            'location': 'Location',
+        }

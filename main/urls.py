@@ -1,15 +1,15 @@
 from django.urls import path
+
 from . import views
-from django.views.generic import TemplateView
 
 urlpatterns = [
-    path('',           views.index,           name='index'),
-    path('',           views.index,           name='home'),
-    path('health/',    views.health,          name='health'),
-    path('services/',  views.services,        name='services'),
-    path('gallery/',   views.gallery,         name='gallery'),
-    path('about/',     views.about,           name='about'),
-    path('booking/',   views.booking,         name='booking'),
+    path('', views.index, name='index'),
+    path('home/', views.index, name='home'),
+    path('health/', views.health, name='health'),
+    path('services/', views.services, name='services'),
+    path('gallery/', views.gallery, name='gallery'),
+    path('about/', views.about, name='about'),
+    path('booking/', views.booking, name='booking'),
     path('booking/success/', views.booking_success, name='booking_success'),
 
     # SEO pages
@@ -20,5 +20,4 @@ urlpatterns = [
     # Legal pages
     path('disclaimer/', views.disclaimer, name='disclaimer'),
     path('privacy-policy/', views.privacy_policy, name='privacy_policy'),
-   
 ]

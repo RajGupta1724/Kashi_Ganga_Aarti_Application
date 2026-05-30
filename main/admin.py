@@ -1,5 +1,6 @@
 from django.contrib import admin
-from .models import Booking, Testimonial, GalleryImage
+
+from .models import Booking, Testimonial, GalleryImage, ServiceReview
 
 
 @admin.register(Booking)
@@ -52,6 +53,15 @@ class TestimonialAdmin(admin.ModelAdmin):
     ordering      = ('-created_at',)
 
 
+@admin.register(ServiceReview)
+class ServiceReviewAdmin(admin.ModelAdmin):
+    list_display = ('name', 'service_type', 'rating', 'location', 'is_active', 'created_at')
+    list_filter = ('service_type', 'rating', 'is_active')
+    search_fields = ('name', 'review', 'location')
+    list_editable = ('rating', 'is_active')
+    ordering = ('-created_at',)
+
+
 @admin.register(GalleryImage)
 class GalleryImageAdmin(admin.ModelAdmin):
     list_display  = ('title', 'category', 'order', 'is_active', 'created_at')
@@ -59,6 +69,3 @@ class GalleryImageAdmin(admin.ModelAdmin):
     search_fields = ('title', 'caption')
     list_editable = ('order', 'is_active')
     ordering      = ('order', '-created_at')
-    
-
-   

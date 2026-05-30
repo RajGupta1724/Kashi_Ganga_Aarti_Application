@@ -3,15 +3,40 @@
 
 {% block title %}Kashi Ganga Aarti | Book Divine Ceremony in Varanasi{% endblock %}
 {% block meta_description %}Book authentic Kashi Ganga Aarti ceremonies in Varanasi. Experienced priests, sacred rituals, unforgettable spiritual experiences. Book now at kashigangaaarti.in.{% endblock %}
-<!-- SEO Meta Tags -->
-<meta name="keywords" content="Kashi Ganga Aarti, Ganga Aarti Varanasi, Book Ganga Aarti, kashigangaaarti.in, Divine Ceremony, Spiritual Event, Varanasi Ghats, Wedding Aarti, Birthday Aarti, Anniversary Aarti, Spiritual Ceremonies">
-<meta name="author" content="Kashi Ganga Aarti">
-<meta property="og:title" content="Kashi Ganga Aarti | Book Divine Ceremony in Varanasi">
-<meta property="og:description" content="Book authentic Kashi Ganga Aarti ceremonies in Varanasi. Experienced priests, sacred rituals, unforgettable spiritual experiences. Book now at kashigangaaarti.in.">
-<meta property="og:url" content="https://kashigangaaarti.in/">
-<meta property="og:type" content="website">
-<meta property="og:image" content="https://kashigangaaarti.in/static/images/hero-aarti.jpg">
-<!-- End SEO Meta Tags -->
+{% block meta_keywords %}Kashi Ganga Aarti, Ganga Aarti Varanasi, Book Ganga Aarti, Divine Ceremony, Spiritual Event, Varanasi Ghats, Wedding Aarti, Birthday Aarti, Anniversary Aarti, Spiritual Ceremonies{% endblock %}
+{% block og_title %}Kashi Ganga Aarti | Book Divine Ceremony in Varanasi{% endblock %}
+{% block og_description %}Book authentic Kashi Ganga Aarti ceremonies in Varanasi. Experienced priests, sacred rituals, unforgettable spiritual experiences.{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-aarti.jpg' %}{% endblock %}
+{% block canonical %}{{ request.scheme }}://{{ request.get_host }}/{% endblock %}
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kashi Ganga",
+  "image": "{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-aarti.jpg' %}",
+  "url": "{{ request.scheme }}://{{ request.get_host }}/",
+  "telephone": "+91 92350 54005",
+  "email": "rajgupta1782005@gmail.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Assi Ghat",
+    "addressLocality": "Varanasi",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "221005",
+    "addressCountry": "IN"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "{{ average_service_rating|default:0 }}",
+    "reviewCount": "{{ service_review_count|default:0 }}"
+  },
+  "sameAs": [
+    "https://wa.me/919235054005"
+  ]
+}
+</script>
+{% endblock %}
 
 {% block content %}
 
@@ -114,8 +139,8 @@
       <!-- Wedding -->
       <div class="col-lg-3 col-md-6">
         <div class="service-card h-100 fade-in-up">
-          <div class="service-card-image" style="background: linear-gradient(135deg, #e65c00, #f9b733);">
-            <div class="service-card-icon">🌸</div>
+          <div class="service-card-image" style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg); height: 180px; display:flex; align-items:center; justify-content:center; background: #fff; position:relative;">
+            <img src="{% static 'images/wedding.jpeg' %}" alt="Wedding Ganga Aarti ceremony" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
             <span class="service-card-badge">Popular</span>
           </div>
           <div class="service-card-body">
@@ -135,8 +160,8 @@
       <!-- Birthday -->
       <div class="col-lg-3 col-md-6">
         <div class="service-card h-100 fade-in-up">
-          <div class="service-card-image" style="background: linear-gradient(135deg, #c04a00, #e65c00);">
-            <div class="service-card-icon">🎂</div>
+          <div class="service-card-image" style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg); height: 180px; display:flex; align-items:center; justify-content:center; background: #fff; position:relative;">
+            <img src="{% static 'images/aarti.jpeg' %}" alt="Birthday Aarti ceremony" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">Birthday Aarti</h3>
@@ -155,8 +180,8 @@
       <!-- Anniversary -->
       <div class="col-lg-3 col-md-6">
         <div class="service-card h-100 fade-in-up">
-          <div class="service-card-image" style="background: linear-gradient(135deg, #d99a1b, #f9b733);">
-            <div class="service-card-icon">💑</div>
+          <div class="service-card-image" style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg); height: 180px; display:flex; align-items:center; justify-content:center; background: #fff; position:relative;">
+            <img src="{% static 'images/wedd.jpeg' %}" alt="Anniversary Aarti ceremony" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
             <span class="service-card-badge" style="background: var(--primary); color: white;">Special</span>
           </div>
           <div class="service-card-body">
@@ -176,8 +201,8 @@
       <!-- Spiritual Ceremony -->
       <div class="col-lg-3 col-md-6">
         <div class="service-card h-100 fade-in-up">
-          <div class="service-card-image" style="background: linear-gradient(135deg, #5a3010, #e65c00);">
-            <div class="service-card-icon">🕉️</div>
+          <div class="service-card-image" style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg); height: 180px; display:flex; align-items:center; justify-content:center; background: #fff; position:relative;">
+            <img src="{% static 'images/aarti2.jpeg' %}" alt="Spiritual ceremony" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
           </div>
           <div class="service-card-body">
             <h3 class="service-card-title">Spiritual Ceremonies</h3>
@@ -424,6 +449,157 @@
 
 
 <!-- ============================================================
+     DIVINE CEREMONY GALLERY
+============================================================ -->
+<section class="section-padding" style="background: linear-gradient(135deg, #f5f5f5 0%, #fafafa 100%);">
+  <div class="container">
+
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">🏛️ Visual Memories</div>
+      <h2 class="section-title">Glimpse of <span>Divine Ceremonies</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">Moments captured from our sacred ceremonies at the banks of the holy Ganga.</p>
+    </div>
+
+    {% if gallery_preview %}
+    <div class="row g-4">
+      {% for img in gallery_preview %}
+      <div class="col-lg-4 col-md-6">
+        <div class="gallery-card fade-in-up" style="position: relative; overflow: hidden; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,0.12); height: 300px; cursor: pointer; transition: all 0.3s ease;">
+          <img src="{{ img.image.url }}" 
+               alt="{{ img.title }}" 
+               style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.3s ease;" 
+               loading="lazy"
+               onmouseover="this.style.transform='scale(1.05)'"
+               onmouseout="this.style.transform='scale(1)'" />
+          
+          {% if img.caption %}
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 20px 16px; color: white;">
+            <h5 style="margin: 0; font-size: 1rem; font-weight: 600;">{{ img.title }}</h5>
+            <p style="margin: 4px 0 0 0; font-size: 0.85rem; color: rgba(255,255,255,0.9);">{{ img.caption }}</p>
+          </div>
+          {% else %}
+          <div style="position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.8), transparent); padding: 20px 16px; color: white;">
+            <h5 style="margin: 0; font-size: 1rem; font-weight: 600;">{{ img.title }}</h5>
+            <p style="margin: 4px 0 0 0; font-size: 0.85rem; text-transform: capitalize; color: rgba(255,255,255,0.9);">{{ img.get_category_display }}</p>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-5 fade-in-up">
+      <a href="{% url 'gallery' %}" class="btn-primary-custom">
+        <i class="fas fa-images"></i> View Full Gallery
+      </a>
+    </div>
+    {% else %}
+    <div class="text-center fade-in-up" style="padding: 40px;">
+      <p style="color: #666; font-size: 1.1rem;">Gallery photos coming soon. Check back later to see beautiful moments from our divine ceremonies.</p>
+    </div>
+    {% endif %}
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICE RATINGS
+============================================================ -->
+<section class="section-padding" style="background: #fff;">
+  <div class="container">
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">⭐ Visitor Ratings</div>
+      <h2 class="section-title">Rate Our <span>Service Experience</span></h2>
+      <div class="section-divider mx-auto"></div>
+      <p class="section-subtitle">Share how your ceremony went and help future visitors choose the right service.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-5 fade-in-up">
+        <div class="feature-box h-100" style="background:var(--bg-light); border-radius:var(--radius-xl);">
+          <div class="d-flex align-items-end gap-2 mb-3">
+            <div style="font-size:3rem; line-height:1; color:var(--secondary);">{{ average_service_rating|default:"0" }}</div>
+            <div>
+              <div style="font-size:0.85rem; text-transform:uppercase; letter-spacing:2px; color:var(--text-muted);">Average Rating</div>
+              <div style="color:var(--secondary); font-size:1.1rem;">
+                {% for _ in "12345"|make_list %}
+                  {% if forloop.counter <= average_service_rating %}<i class="fas fa-star"></i>{% else %}<i class="far fa-star"></i>{% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+          <p class="feature-box-text mb-0">{{ service_review_count }} verified visitor ratings are helping families learn more about our ceremonies.</p>
+        </div>
+
+        <div class="mt-4">
+          {% for review in recent_reviews %}
+          <div class="testimonial-card mb-3">
+            <div class="testimonial-stars">
+              {% for _ in "12345"|make_list %}
+                {% if forloop.counter <= review.rating %}<i class="fas fa-star"></i>{% else %}<i class="far fa-star"></i>{% endif %}
+              {% endfor %}
+            </div>
+            <p class="testimonial-text">"{{ review.review }}"</p>
+            <div class="testimonial-author">
+              <div class="testimonial-author-avatar">{{ review.name|first }}</div>
+              <div>
+                <div class="testimonial-author-name">{{ review.name }}</div>
+                <div class="testimonial-author-event">{{ review.get_service_type_display }}{% if review.location %} · {{ review.location }}{% endif %}</div>
+              </div>
+            </div>
+          </div>
+          {% empty %}
+          <div class="feature-box" style="background:var(--bg-light); border-radius:var(--radius-xl);">
+            <p class="mb-0">Be the first to share your experience after booking a ceremony.</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="col-lg-7 fade-in-up">
+        <div class="booking-form-card" style="height:100%;">
+          <h3 class="section-title" style="font-size:1.7rem; margin-bottom:8px;">Leave a Rating</h3>
+          <p class="section-subtitle" style="text-align:left; margin-bottom:24px;">Tell us what you experienced and rate the ceremony from 1 to 5.</p>
+          <form method="post" novalidate>
+            {% csrf_token %}
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">{{ review_form.name.label }}</label>
+                {{ review_form.name }}
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ review_form.location.label }}</label>
+                {{ review_form.location }}
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ review_form.service_type.label }}</label>
+                {{ review_form.service_type }}
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">{{ review_form.rating.label }}</label>
+                {{ review_form.rating }}
+              </div>
+              <div class="col-12">
+                <label class="form-label">{{ review_form.review.label }}</label>
+                {{ review_form.review }}
+              </div>
+            </div>
+            <div class="mt-4">
+              <button type="submit" class="btn-primary-custom w-100 justify-content-center">
+                <i class="fas fa-star"></i> Submit Rating
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
      BOOKING CTA BANNER
 ============================================================ -->
 <section class="booking-cta-section section-padding">
@@ -533,9 +709,6 @@
       </div>
     </div>
   </div>
-</section>
-
-{% endblock %}
 <!-- ============================================================
      REFERENCES & USEFUL LINKS (SEO Backlinks)
 ============================================================ -->
@@ -556,3 +729,5 @@
     </ul>
   </div>
 </section>
+
+{% endblock %}

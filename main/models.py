@@ -63,6 +63,32 @@ class Testimonial(models.Model):
         return f"{self.name} — {self.event_type}"
 
 
+class ServiceReview(models.Model):
+    SERVICE_CHOICES = [
+        ('wedding', 'Wedding Ganga Aarti'),
+        ('birthday', 'Birthday Aarti'),
+        ('anniversary', 'Anniversary Aarti'),
+        ('spiritual', 'Spiritual Ceremonies'),
+        ('ganga_aarti', 'Ganga Evening Aarti Experience'),
+    ]
+
+    name = models.CharField(max_length=200)
+    service_type = models.CharField(max_length=50, choices=SERVICE_CHOICES)
+    rating = models.PositiveSmallIntegerField(default=5)
+    review = models.TextField()
+    location = models.CharField(max_length=200, blank=True)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']
+        verbose_name = 'Service Review'
+        verbose_name_plural = 'Service Reviews'
+
+    def __str__(self):
+        return f"{self.name} — {self.get_service_type_display()} ({self.rating}/5)"
+
+
 class GalleryImage(models.Model):
     CATEGORY_CHOICES = [
         ('wedding',      'Wedding'),

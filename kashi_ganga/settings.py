@@ -29,12 +29,14 @@ SECRET_KEY = os.environ.get(
     'django-insecure-kashi-ganga-aarti-change-in-production'
 )
 
-DEBUG = False
+DEBUG = env_bool('DEBUG', default=True)
 
 ALLOWED_HOSTS = [
     'kashigangaaarti.in',
     'www.kashigangaaarti.in',
     '127.0.0.1',
+    '127.0.0.1.nip.io',
+    '127.0.0.1.sslip.io',
     'localhost'
 ]
 
@@ -72,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'main.context_processors.site_context',
             ],
         },
     },
@@ -148,16 +151,8 @@ ADMIN_SITE_HEADER = "Kashi Ganga Admin Panel"
 ADMIN_SITE_TITLE = "Kashi Ganga"
 ADMIN_INDEX_TITLE = "Admin Dashboard"
 
-# CSRF and session settings for production
-CSRF_COOKIE_SECURE = True
-SESSION_COOKIE_SECURE = True
-SECURE_SSL_REDIRECT = True
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_HSTS_SECONDS = 31536000
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
-SECURE_HSTS_PRELOAD = True
-
-# Add your domain to CSRF trusted origins
-CSRF_TRUSTED_ORIGINS += [
-    'https://kashigangaaarti.in',
-]
+if not DEBUG:
+    # Add your domain to CSRF trusted origins
+    CSRF_TRUSTED_ORIGINS += [
+        'https://kashigangaaarti.in',
+    ]

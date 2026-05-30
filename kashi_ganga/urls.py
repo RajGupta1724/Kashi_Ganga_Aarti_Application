@@ -1,17 +1,12 @@
 
 from django.contrib import admin
-from django.urls import path, include
-from django.views.generic import TemplateView
-from main.views import robots_txt, sitemap_xml  # 👈 ADD THIS
+from django.urls import include, path
+
+from main.views import robots_txt, sitemap_xml
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-
-    # 👇 Serve robots.txt DIRECTLY at root
     path('robots.txt', robots_txt),
-    path('sitemap.xml', sitemap_xml),  # ✅ ADD THIS
-
-    # 👇 All other routes
+    path('sitemap.xml', sitemap_xml),
     path('', include('main.urls')),
-     path("robots.txt", TemplateView.as_view(template_name="robots.txt", content_type="text/plain")),
 ]

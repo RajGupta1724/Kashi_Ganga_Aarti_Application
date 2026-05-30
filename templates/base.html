@@ -10,19 +10,22 @@
   <meta name="description" content="{% block meta_description %}Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and spiritual events in Varanasi. Experienced priests, divine rituals, unforgettable experiences.{% endblock %}" />
   <meta name="keywords" content="{% block meta_keywords %}Ganga Aarti Booking, Varanasi Ganga Aarti Service, Private Ganga Aarti Ceremony, Kashi Aarti, Wedding Aarti, Birthday Aarti, Spiritual Ceremony Varanasi, Puja Booking{% endblock %}" />
   <meta name="author" content="Kashi Ganga" />
-  <meta name="robots" content="index, follow" />
+  <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}" />
 
   <!-- Open Graph -->
   <meta property="og:title" content="{% block og_title %}Kashi Ganga — Divine Aarti & Spiritual Event Services{% endblock %}" />
-  <meta property="og:description" content="Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and special spiritual events." />
+  <meta property="og:description" content="{% block og_description %}Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and special spiritual events.{% endblock %}" />
   <meta property="og:type" content="website" />
-  <meta property="og:image" content="{% static 'images/hero-aarti.jpg' %}" />
-
-  <!-- SEO: Alt text for main hero image -->
-  <meta name="image" content="Kashi Ganga Aarti at Assi Ghat" />
+  <meta property="og:url" content="{% block og_url %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}" />
+  <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-aarti.jpg' %}{% endblock %}" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kashi Ganga — Divine Aarti & Spiritual Event Services" />
+  <meta name="twitter:description" content="Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and special spiritual events." />
 
   <!-- Canonical -->
-  <link rel="canonical" href="{% block canonical %}{% endblock %}" />
+  <link rel="canonical" href="{% block canonical %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}" />
+
+  {% block extra_head %}{% endblock %}
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -41,7 +44,6 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{% static 'css/style.css' %}" />
 
-  {% block extra_head %}{% endblock %}
 </head>
 <body>
 
@@ -174,15 +176,15 @@
             <ul class="footer-contact">
               <li>
                 <i class="fas fa-map-marker-alt"></i>
-                <span>Assi Ghat, Varanasi, Uttar Pradesh 221005</span>
+                <span>{{ site_address }}</span>
               </li>
               <li>
                 <i class="fas fa-phone-alt"></i>
                 <span>+91 92350 54005</span>
-              </li>
+              </li>{{ site_phone_primary }}
               <li>
                 <i class="fas fa-envelope"></i>
-                <span>rajgupta1782005@gmail.com</span>
+                <span>{{ site_email }}</span>
               </li>
               <li>
                 <i class="fas fa-phone-alt"></i>
