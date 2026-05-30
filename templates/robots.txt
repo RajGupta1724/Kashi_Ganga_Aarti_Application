@@ -1,10 +1,4 @@
-User-agent: naverbot
-Disallow: /
-User-agent: yeti
-Disallow: /
-User-agent: psbot
-Disallow: /
 User-agent: *
-Disallow: 
+Allow: /
 Disallow: /cgi-bin/
-Sitemap: https://kashigangaaarti.in/sitemap.xml
+Sitemap: {{ request.scheme }}://{{ request.get_host }}/sitemap.xml

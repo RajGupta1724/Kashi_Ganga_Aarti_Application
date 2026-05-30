@@ -5,73 +5,76 @@
       xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+{% load static %}
+{% with site_root=request.scheme|add:"://"|add:request.get_host %}
 
 
 <url>
-  <loc>https://kashigangaaarti.in/</loc>
+  <loc>{{ site_root }}/</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/services/</loc>
+  <loc>{{ site_root }}/services/</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/gallery/</loc>
+  <loc>{{ site_root }}/gallery/</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/about/</loc>
+  <loc>{{ site_root }}/about/</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/booking/</loc>
+  <loc>{{ site_root }}/booking/</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/privacy-policy/</loc>
+  <loc>{{ site_root }}/privacy-policy/</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/disclaimer/</loc>
+  <loc>{{ site_root }}/disclaimer/</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/gallery/?category=wedding</loc>
+  <loc>{{ site_root }}/gallery/?category=wedding</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/gallery/?category=birthday</loc>
+  <loc>{{ site_root }}/gallery/?category=birthday</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/gallery/?category=anniversary</loc>
+  <loc>{{ site_root }}/gallery/?category=anniversary</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/gallery/?category=ceremony</loc>
+  <loc>{{ site_root }}/gallery/?category=ceremony</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/gallery/?category=ganga_aarti</loc>
+  <loc>{{ site_root }}/gallery/?category=ganga_aarti</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
-  <loc>https://kashigangaaarti.in/gallery/?category=other</loc>
+  <loc>{{ site_root }}/gallery/?category=other</loc>
   <lastmod>2026-03-21T21:51:21+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 
 
 </urlset>
+{% endwith %}

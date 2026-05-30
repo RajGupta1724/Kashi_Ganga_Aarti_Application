@@ -10,7 +10,7 @@ from .models import GalleryImage, ServiceReview, Testimonial
 
 
 def sitemap_xml(request):
-    xml = render_to_string('sitemap.xml')
+    xml = render_to_string('sitemap.xml', request=request)
     return HttpResponse(xml, content_type='application/xml')
 
 
@@ -74,10 +74,11 @@ def home(request):
 
 
 def robots_txt(request):
+    site_root = f'{request.scheme}://{request.get_host()}'
     content = (
         'User-agent: *\n'
         'Allow: /\n'
-        'Sitemap: https://kashigangaaarti.in/sitemap.xml\n'
+        f'Sitemap: {site_root}/sitemap.xml\n'
     )
     return HttpResponse(content, content_type='text/plain')
 
