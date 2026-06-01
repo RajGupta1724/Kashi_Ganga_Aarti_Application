@@ -175,6 +175,191 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 4000);
   }
 
+  /* ===== SITE KEEP-ALIVE / HEALTH PING ===== */
+  const keepAliveUrl = '/health/';
+  const pingKeepAlive = () => {
+    if (document.visibilityState !== 'visible') return;
+    fetch(keepAliveUrl, {
+      method: 'GET',
+      cache: 'no-store',
+      credentials: 'same-origin',
+      keepalive: true,
+      headers: { 'X-Requested-With': 'fetch' }
+    }).catch(() => {});
+  };
+
+  pingKeepAlive();
+  setInterval(pingKeepAlive, 4 * 60 * 1000);
+  document.addEventListener('visibilitychange', pingKeepAlive);
+
+  /* ===== RATING SECTION ===== */
+  const ratingForm = document.getElementById('serviceReviewForm');
+  if (ratingForm) {
+    const ratingInput = ratingForm.querySelector('select[name="rating"]');
+    const ratingButtons = Array.from(ratingForm.querySelectorAll('[data-rating-value]'));
+    const ratingFeedList = document.getElementById('ratingFeedList');
+    const reviewCountNode = document.getElementById('serviceReviewCount');
+    const averageRatingNode = document.getElementById('averageRatingValue');
+    const averageStarsNode = document.getElementById('averageRatingStars');
+    const summaryCard = ratingForm.closest('.rating-layout')?.querySelector('.rating-summary-card');
+
+    const getSelectedServiceType = () => {
+      const serviceTypeField = ratingForm.querySelector('select[name="service_type"]');
+      return serviceTypeField && serviceTypeField.selectedOptions.length
+        ? serviceTypeField.selectedOptions[0].textContent.trim()
+        : '';
+    };
+
+    const renderStars = (container, rating) => {
+      if (!container) return;
+      const safeRating = Math.max(0, Math.min(5, rating));
+      container.innerHTML = '';
+      for (let index = 1; index <= 5; index++) {
+        const icon = document.createElement('i');
+        icon.className = index <= safeRating ? 'fas fa-star' : 'far fa-star';
+        container.appendChild(icon);
+      }
+    };
+
+    const syncRating = (value) => {
+      const safeValue = Math.max(1, Math.min(5, value));
+      if (ratingInput) {
+        ratingInput.value = String(safeValue);
+      }
+
+      ratingButtons.forEach(button => {
+        const buttonValue = Number(button.dataset.ratingValue);
+        const active = buttonValue <= safeValue;
+        button.classList.toggle('is-active', active);
+        const icon = button.querySelector('i');
+        if (icon) {
+          icon.className = active ? 'fas fa-star' : 'far fa-star';
+        }
+        button.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+    };
+
+    const updateSummary = (ratingValue) => {
+      if (!summaryCard || !reviewCountNode || !averageRatingNode || !averageStarsNode) return;
+
+      const currentCount = Number(summaryCard.dataset.reviewCount || reviewCountNode.textContent || '0');
+      const currentAverage = Number(summaryCard.dataset.averageRating || averageRatingNode.textContent || '0');
+      const nextCount = currentCount + 1;
+      const nextAverage = ((currentAverage * currentCount) + ratingValue) / nextCount;
+
+      summaryCard.dataset.reviewCount = String(nextCount);
+      summaryCard.dataset.averageRating = String(nextAverage);
+      reviewCountNode.textContent = String(nextCount);
+      averageRatingNode.textContent = nextAverage.toFixed(1).replace(/\.0$/, '');
+      renderStars(averageStarsNode, Math.round(nextAverage));
+    };
+
+    const prependReviewCard = ({ name, serviceType, location, rating, review }) => {
+      if (!ratingFeedList) return;
+
+      const item = document.createElement('article');
+      item.className = 'rating-feed-item';
+      item.dataset.ratingCard = 'true';
+      item.dataset.rating = String(rating);
+
+      const head = document.createElement('div');
+      head.className = 'rating-feed-item-head';
+
+      const avatar = document.createElement('div');
+      avatar.className = 'rating-feed-avatar';
+      avatar.textContent = (name || 'Guest').trim().charAt(0).toUpperCase() || 'G';
+
+      const meta = document.createElement('div');
+      meta.className = 'rating-feed-meta';
+
+      const title = document.createElement('div');
+      title.className = 'rating-feed-name';
+      title.textContent = name || 'Guest';
+
+      const submeta = document.createElement('div');
+      submeta.className = 'rating-feed-submeta';
+      submeta.textContent = [serviceType, location].filter(Boolean).join(' · ');
+
+      meta.appendChild(title);
+      meta.appendChild(submeta);
+
+      const score = document.createElement('div');
+      score.className = 'rating-feed-score';
+      score.textContent = `${rating}/5`;
+
+      head.appendChild(avatar);
+      head.appendChild(meta);
+      head.appendChild(score);
+
+      const stars = document.createElement('div');
+      stars.className = 'rating-feed-stars';
+      stars.setAttribute('aria-label', `${rating} out of 5 stars`);
+      renderStars(stars, rating);
+
+      const text = document.createElement('p');
+      text.className = 'rating-feed-text';
+      text.textContent = review || '';
+
+      item.appendChild(head);
+      item.appendChild(stars);
+      item.appendChild(text);
+
+      ratingFeedList.prepend(item);
+    };
+
+    ratingButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        syncRating(Number(button.dataset.ratingValue || '5'));
+      });
+    });
+
+    if (ratingInput) {
+      syncRating(Number(ratingInput.value || '5'));
+      ratingInput.addEventListener('change', () => {
+        syncRating(Number(ratingInput.value || '5'));
+      });
+    }
+
+    ratingForm.addEventListener('submit', async (event) => {
+      if (!ratingFeedList) return;
+
+      event.preventDefault();
+
+      const formData = new FormData(ratingForm);
+      const csrfToken = ratingForm.querySelector('input[name="csrfmiddlewaretoken"]')?.value || '';
+      const ratingValue = Number(formData.get('rating') || '0');
+
+      try {
+        const response = await fetch(ratingForm.action || window.location.href, {
+          method: 'POST',
+          body: formData,
+          credentials: 'same-origin',
+          headers: {
+            'X-CSRFToken': csrfToken,
+            'X-Requested-With': 'XMLHttpRequest'
+          }
+        });
+
+        if (!response.ok || !response.redirected) {
+          throw new Error('Rating submission did not complete.');
+        }
+
+        prependReviewCard({
+          name: String(formData.get('name') || 'Guest'),
+          serviceType: getSelectedServiceType(),
+          location: String(formData.get('location') || ''),
+          rating: ratingValue || 5,
+          review: String(formData.get('review') || '')
+        });
+        updateSummary(ratingValue || 5);
+        ratingForm.reset();
+        syncRating(5);
+      } catch (error) {
+        ratingForm.submit();
+      }
+    });
+  }
+
   /* ===== ACTIVE NAV LINK ===== */
   const currentPath = window.location.pathname;
   document.querySelectorAll('#mainNav .nav-link').forEach(link => {
