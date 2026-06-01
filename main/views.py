@@ -37,14 +37,23 @@ def privacy_policy(request):
     return render(request, 'privacy_policy.html')
 
 
-def index(request):
-    testimonials = Testimonial.objects.filter(is_active=True)[:6]
-    gallery_preview = GalleryImage.objects.filter(is_active=True)[:6]
+def _service_review_context(request, review_form=None):
     active_reviews = ServiceReview.objects.filter(is_active=True)
     review_stats = active_reviews.aggregate(average_rating=Avg('rating'))
     average_service_rating = round(review_stats['average_rating'] or 0, 1)
     service_review_count = active_reviews.count()
-    recent_reviews = active_reviews[:6]
+
+    return {
+        'review_form': review_form or ServiceReviewForm(),
+        'recent_reviews': active_reviews[:6],
+        'average_service_rating': average_service_rating,
+        'service_review_count': service_review_count,
+    }
+
+
+def index(request):
+    testimonials = Testimonial.objects.filter(is_active=True)[:6]
+    gallery_preview = GalleryImage.objects.filter(is_active=True)[:6]
 
     if request.method == 'POST':
         review_form = ServiceReviewForm(request.POST)
@@ -54,22 +63,37 @@ def index(request):
                 request,
                 'Thanks for your rating. Your feedback helps other visitors choose the right service.'
             )
-            return redirect('home')
+            return redirect('ratings')
     else:
         review_form = ServiceReviewForm()
+
+    review_context = _service_review_context(request, review_form)
 
     return render(request, 'index.html', {
         'testimonials': testimonials,
         'gallery_preview': gallery_preview,
-        'review_form': review_form,
-        'recent_reviews': recent_reviews,
-        'average_service_rating': average_service_rating,
-        'service_review_count': service_review_count,
+        **review_context,
     })
 
 
 def about(request):
     return render(request, 'about.html')
+
+
+def ratings(request):
+    if request.method == 'POST':
+        review_form = ServiceReviewForm(request.POST)
+        if review_form.is_valid():
+            review_form.save()
+            messages.success(
+                request,
+                'Thanks for your rating. Your feedback helps other visitors choose the right service.'
+            )
+            return redirect('ratings')
+    else:
+        review_form = ServiceReviewForm()
+
+    return render(request, 'ratings.html', _service_review_context(request, review_form))
 
 
 def home(request):

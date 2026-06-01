@@ -469,113 +469,14 @@
 </section>
 
 
-<!-- ============================================================
-     SERVICE RATINGS
-============================================================ -->
-<section class="section-padding rating-section" id="ratings">
-  <div class="container">
-    <div class="section-header center text-center fade-in-up">
-      <div class="section-badge">⭐ Visitor Ratings</div>
-      <h2 class="section-title">Rate Our <span>Service Experience</span></h2>
-      <div class="section-divider mx-auto"></div>
-      <p class="section-subtitle">Share how your ceremony went and help future visitors choose the right service.</p>
-    </div>
-
-    <div class="rating-layout fade-in-up">
-      <div class="rating-primary-column">
-        <div class="rating-summary-card" data-average-rating="{{ average_service_rating|default:'0' }}" data-review-count="{{ service_review_count|default:'0' }}">
-          <div class="rating-summary-head">
-            <div>
-              <div class="rating-summary-label">Average Rating</div>
-              <div class="rating-summary-value" id="averageRatingValue">{{ average_service_rating|default:'0' }}</div>
-            </div>
-            <div class="rating-summary-stars" id="averageRatingStars" aria-label="Average rating">
-              {% for _ in "12345"|make_list %}
-                {% if forloop.counter <= average_service_rating %}<i class="fas fa-star"></i>{% else %}<i class="far fa-star"></i>{% endif %}
-              {% endfor %}
-            </div>
-          </div>
-          <p class="rating-summary-copy"><span id="serviceReviewCount">{{ service_review_count }}</span> verified visitor ratings are helping families learn more about our ceremonies.</p>
-        </div>
-
-        <div class="rating-form-card">
-          <h3 class="section-title rating-card-title">Leave a Rating</h3>
-          <p class="section-subtitle rating-card-subtitle">Tell us what you experienced and rate the ceremony from 1 to 5.</p>
-          <form method="post" id="serviceReviewForm" class="rating-form" novalidate>
-            {% csrf_token %}
-            <div class="rating-form-grid">
-              <div class="field-group">
-                <label class="form-label">{{ review_form.name.label }}</label>
-                {{ review_form.name }}
-                {{ review_form.name.errors }}
-              </div>
-              <div class="field-group">
-                <label class="form-label">{{ review_form.location.label }}</label>
-                {{ review_form.location }}
-                {{ review_form.location.errors }}
-              </div>
-              <div class="field-group">
-                <label class="form-label">{{ review_form.service_type.label }}</label>
-                {{ review_form.service_type }}
-                {{ review_form.service_type.errors }}
-              </div>
-              <div class="field-group rating-field-group">
-                <label class="form-label">{{ review_form.rating.label }}</label>
-                <div class="rating-stars" id="ratingStars" data-rating-stars>
-                  <button type="button" class="rating-star" data-rating-value="1" aria-label="1 star"><i class="far fa-star"></i></button>
-                  <button type="button" class="rating-star" data-rating-value="2" aria-label="2 stars"><i class="far fa-star"></i></button>
-                  <button type="button" class="rating-star" data-rating-value="3" aria-label="3 stars"><i class="far fa-star"></i></button>
-                  <button type="button" class="rating-star" data-rating-value="4" aria-label="4 stars"><i class="far fa-star"></i></button>
-                  <button type="button" class="rating-star" data-rating-value="5" aria-label="5 stars"><i class="far fa-star"></i></button>
-                </div>
-                <div class="rating-select-sr-only">{{ review_form.rating }}</div>
-                {{ review_form.rating.errors }}
-              </div>
-              <div class="field-group field-group-full">
-                <label class="form-label">{{ review_form.review.label }}</label>
-                {{ review_form.review }}
-                {{ review_form.review.errors }}
-              </div>
-            </div>
-            <div class="rating-form-actions">
-              <button type="submit" class="btn-primary-custom w-100 justify-content-center">
-                <i class="fas fa-star"></i> Submit Rating
-              </button>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <aside class="rating-feed-card" aria-labelledby="recentRatingsHeading">
-        <div class="rating-feed-header">
-          <div class="section-badge">🗂 Recent Ratings</div>
-          <h3 class="section-title rating-feed-title" id="recentRatingsHeading">Submitted <span>Visitor Feedback</span></h3>
-          <p class="rating-feed-subtitle">New ratings appear here without overlapping the layout, even on narrow screens.</p>
-        </div>
-        <div class="rating-feed-list" id="ratingFeedList">
-          {% for review in recent_reviews %}
-          <article class="rating-feed-item" data-rating-card data-rating="{{ review.rating }}">
-            <div class="rating-feed-item-head">
-              <div class="rating-feed-avatar">{{ review.name|first }}</div>
-              <div class="rating-feed-meta">
-                <div class="rating-feed-name">{{ review.name }}</div>
-                <div class="rating-feed-submeta">{{ review.get_service_type_display }}{% if review.location %} · {{ review.location }}{% endif %}</div>
-              </div>
-              <div class="rating-feed-score">{{ review.rating }}/5</div>
-            </div>
-            <div class="rating-feed-stars" aria-label="{{ review.rating }} out of 5 stars">
-              {% for _ in "12345"|make_list %}
-                {% if forloop.counter <= review.rating %}<i class="fas fa-star"></i>{% else %}<i class="far fa-star"></i>{% endif %}
-              {% endfor %}
-            </div>
-            <p class="rating-feed-text">{{ review.review }}</p>
-          </article>
-          {% empty %}
-          <div class="rating-feed-empty">Be the first to share your experience after booking a ceremony.</div>
-          {% endfor %}
-        </div>
-      </aside>
-    </div>
+<section class="section-padding" style="background: #fff;">
+  <div class="container text-center">
+    <div class="section-badge">⭐ Visitor Ratings</div>
+    <h2 class="section-title">Read and share <span>visitor feedback</span></h2>
+    <p class="section-subtitle">Visit the dedicated ratings page to see submitted reviews and add your own rating.</p>
+    <a href="{% url 'ratings' %}" class="btn-primary-custom">
+      <i class="fas fa-star"></i> Open Ratings Page
+    </a>
   </div>
 </section>
 
