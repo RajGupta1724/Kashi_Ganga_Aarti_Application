@@ -7,8 +7,10 @@
 
   <!-- SEO Meta Tags -->
   <title>{% block title %}Kashi Ganga — Divine Aarti & Spiritual Event Services{% endblock %}</title>
-  <meta name="description" content="{% block meta_description %}Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and spiritual events in Varanasi. Experienced priests, divine rituals, unforgettable experiences.{% endblock %}" />
-  <meta name="keywords" content="{% block meta_keywords %}Ganga Aarti Booking, Varanasi Ganga Aarti Service, Private Ganga Aarti Ceremony, Kashi Aarti, Wedding Aarti, Birthday Aarti, Spiritual Ceremony Varanasi, Puja Booking{% endblock %}" />
+  <!-- Inside your base.html <head> tag -->
+  <title>{% block title %}Kashi Ganga — Divine Aarti & Spiritual Event Services{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and spiritual events in Varanasi.{% endblock %}" />
+  <meta name="keywords" content="{% block meta_keywords %}Ganga Aarti Booking, Varanasi Ganga Aarti Service, Private Ganga Aarti Ceremony{% endblock %}" />
   <meta name="author" content="Kashi Ganga" />
   <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}" />
 
@@ -200,10 +202,17 @@
                 <i class="fas fa-map-marker-alt"></i>
                 <span>{{ site_address }}</span>
               </li>
+              <!-- Inside your base.html <footer> section (Fixing the floating variable) -->
               <li>
                 <i class="fas fa-phone-alt"></i>
                 <span>+91 92350 54005</span>
-              </li>{{ site_phone_primary }}
+              </li>
+              {% if site_phone_primary %}
+              <li>
+                <i class="fas fa-phone-alt"></i>
+                <span>{{ site_phone_primary }}</span>
+              </li>
+              {% endif %}
               <li>
                 <i class="fas fa-envelope"></i>
                 <span>{{ site_email }}</span>
