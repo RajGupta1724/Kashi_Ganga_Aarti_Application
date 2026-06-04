@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Kashi Ganga Aarti | Spiritual Events in Varanasi{% endblock %}
-{% block meta_description %}Book Kashi Ganga Aarti in Varanasi. Check timing, rituals, and online booking for sacred ceremonies at the ghats.{% endblock %}
-{% block meta_keywords %}Kashi Ganga Aarti, Ganga Aarti booking, Varanasi Aarti timing, Assi Ghat Aarti, online ceremony booking, sacred rituals{% endblock %}
-{% block og_title %}Kashi Ganga Aarti | Spiritual Events in Varanasi{% endblock %}
-{% block og_description %}Experience the divine Ganga Aarti at Varanasi. Book spiritual ceremonies, cultural events, and unforgettable experiences with Kashi Ganga Aarti.{% endblock %}
+{% block title %}Ganga Aarti Booking in Varanasi | Wedding, Birthday &amp; Special Events{% endblock %}
+{% block meta_description %}Book private Ganga Aarti in Varanasi for weddings, birthdays, anniversaries, family functions, and special occasions. Professional arrangements at Assi Ghat and Dashashwamedh Ghat.{% endblock %}
+{% block meta_keywords %}Ganga Aarti Booking Varanasi, Wedding Ganga Aarti, Birthday Ganga Aarti, Private Ganga Aarti, Assi Ghat Ganga Aarti{% endblock %}
+{% block og_title %}Ganga Aarti Booking in Varanasi | Wedding, Birthday &amp; Special Events{% endblock %}
+{% block og_description %}Book private Ganga Aarti in Varanasi for weddings, birthdays, anniversaries, family functions, and special occasions. Professional arrangements at Assi Ghat and Dashashwamedh Ghat.{% endblock %}
 {% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-aarti.jpg' %}{% endblock %}
 {% block canonical %}{{ request.scheme }}://{{ request.get_host }}/{% endblock %}
 {% block extra_head %}
@@ -55,19 +55,21 @@
 
     <!-- Main Heading -->
     <h1 class="hero-title">
-      Divine Aarti &amp; <span class="golden">Spiritual</span><br>Event Services
+      Book Special Ganga Aarti in <span class="golden">Varanasi</span>
     </h1>
 
     <!-- Subtitle -->
     <p class="hero-subtitle">
-      Bring devotion, positivity, and divine energy to your important life moments
-      through traditional rituals performed by experienced priests.
+      Wedding Ganga Aarti, birthday blessings, anniversary ceremonies, and private family rituals are arranged with authentic Vedic guidance at the ghats of Varanasi.
     </p>
 
     <!-- CTA Buttons -->
     <div class="hero-buttons">
       <a href="{% url 'services' %}" class="btn-primary-custom">
         <i class="fas fa-hands-praying"></i> Explore Our Services
+      </a>
+      <a href="{% url 'wedding_ganga_aarti' %}" class="btn-outline-custom">
+        <i class="fas fa-heart"></i> Wedding Aarti
       </a>
       <a href="{% url 'booking' %}" class="btn-outline-custom">
         <i class="fas fa-calendar-check"></i> Book Now
@@ -147,7 +149,7 @@
               <li>Photography permitted</li>
               <li>Customizable duration</li>
             </ul>
-            <a href="{% url 'services' %}" class="btn-primary-custom w-100 justify-content-center">Inquire Now</a>
+            <a href="{% url 'wedding_ganga_aarti' %}" class="btn-primary-custom w-100 justify-content-center">View Wedding Page</a>
           </div>
         </div>
       </div>
@@ -167,7 +169,7 @@
               <li>Prasad distribution</li>
               <li>Suitable for all ages</li>
             </ul>
-            <a href="{% url 'services' %}" class="btn-primary-custom w-100 justify-content-center">Inquire Now</a>
+            <a href="{% url 'birthday_ganga_aarti' %}" class="btn-primary-custom w-100 justify-content-center">View Birthday Page</a>
           </div>
         </div>
       </div>
@@ -188,7 +190,7 @@
               <li>Sacred vow renewal</li>
               <li>Memorable experience</li>
             </ul>
-            <a href="{% url 'services' %}" class="btn-primary-custom w-100 justify-content-center">Inquire Now</a>
+            <a href="{% url 'anniversary_ganga_aarti' %}" class="btn-primary-custom w-100 justify-content-center">View Anniversary Page</a>
           </div>
         </div>
       </div>
@@ -208,7 +210,7 @@
               <li>Samagri provided</li>
               <li>At your venue too</li>
             </ul>
-            <a href="{% url 'services' %}" class="btn-primary-custom w-100 justify-content-center">Inquire Now</a>
+            <a href="{% url 'private_ganga_aarti' %}" class="btn-primary-custom w-100 justify-content-center">View Private Page</a>
           </div>
         </div>
       </div>
@@ -218,6 +220,51 @@
       <a href="{% url 'services' %}" class="btn-outline-custom">
         <i class="fas fa-arrow-right"></i> View All Services
       </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SERVICE PAGES AND SEARCH COPY
+============================================================ -->
+<section class="section-padding" style="background:#fff;">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-7 fade-in-up">
+        <div class="section-badge">🔎 Dedicated Landing Pages</div>
+        <h2 class="section-title">Separate Pages for Each <span>Special Occasion</span></h2>
+        <div class="section-divider left"></div>
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:16px;">
+          Each ceremony deserves its own page, its own wording, and its own search intent. That is why we now keep Wedding Ganga Aarti, Birthday Ganga Aarti, Anniversary Ganga Aarti, Private Ganga Aarti, and Corporate Ganga Aarti on separate landing pages instead of hiding everything on one homepage.
+        </p>
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:16px;">
+          This helps visitors find the exact service they want and helps search engines understand which page should rank for each query. It also gives you more room to explain the process, location, offerings, and FAQs in a way that matches the occasion.
+        </p>
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:24px;">
+          If someone searches for Wedding Ganga Aarti in Varanasi, they should land on a page written for that ceremony. If they want a birthday blessing or a quiet private ritual, they should land on a page that speaks directly to that need.
+        </p>
+        <div class="d-flex gap-3 flex-wrap">
+          <a href="{% url 'wedding_ganga_aarti' %}" class="btn-primary-custom">Wedding Ganga Aarti</a>
+          <a href="{% url 'birthday_ganga_aarti' %}" class="btn-outline-custom">Birthday Ganga Aarti</a>
+          <a href="{% url 'anniversary_ganga_aarti' %}" class="btn-outline-custom">Anniversary Ganga Aarti</a>
+          <a href="{% url 'private_ganga_aarti' %}" class="btn-outline-custom">Private Ganga Aarti</a>
+          <a href="{% url 'corporate_ganga_aarti' %}" class="btn-outline-custom">Corporate Ganga Aarti</a>
+        </div>
+      </div>
+      <div class="col-lg-5 fade-in-up">
+        <div class="feature-box h-100">
+          <span class="feature-box-icon">📚</span>
+          <h3 class="feature-box-title">What Search Engines Prefer</h3>
+          <p class="feature-box-text">Clear titles, one H1 per page, descriptive headings, internal links, and meaningful page copy help your site rank for the right local searches.</p>
+          <ul class="service-card-features mt-3">
+            <li>Unique title and meta description for each page</li>
+            <li>Internal links between related ceremonies</li>
+            <li>Image alt text on every important image</li>
+            <li>Real answers to common booking questions</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -296,6 +343,59 @@
           <span class="feature-box-icon">💬</span>
           <h4 class="feature-box-title">24/7 WhatsApp Support</h4>
           <p class="feature-box-text">Have a question at any hour? Reach us instantly on WhatsApp for quick and helpful responses.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     HOMEPAGE FAQ
+============================================================ -->
+<section class="section-padding" style="background:#fff;">
+  <div class="container">
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">❓ Frequently Asked Questions</div>
+      <h2 class="section-title">Questions About <span>Booking Ganga Aarti</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-lg-4 col-md-6 fade-in-up">
+        <div class="feature-box h-100">
+          <h3 class="feature-box-title">How do I book a private Ganga Aarti?</h3>
+          <p class="feature-box-text">Use the booking page or WhatsApp us with your preferred date, occasion, and ghat. We will confirm the timing and ritual details.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in-up">
+        <div class="feature-box h-100">
+          <h3 class="feature-box-title">Can you arrange Ganga Aarti for weddings?</h3>
+          <p class="feature-box-text">Yes. We organize Wedding Ganga Aarti ceremonies for families who want a sacred blessing at Assi Ghat, Dashashwamedh Ghat, or a private venue.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in-up">
+        <div class="feature-box h-100">
+          <h3 class="feature-box-title">Do you provide birthday and anniversary ceremonies?</h3>
+          <p class="feature-box-text">Yes. Birthday Ganga Aarti and Anniversary Ganga Aarti are both available with custom planning for families, couples, and visiting guests.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in-up">
+        <div class="feature-box h-100">
+          <h3 class="feature-box-title">Which ghats are available?</h3>
+          <p class="feature-box-text">We commonly arrange ceremonies at Assi Ghat and Dashashwamedh Ghat, depending on the ceremony style, crowd conditions, and timing.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in-up">
+        <div class="feature-box h-100">
+          <h3 class="feature-box-title">Can you handle corporate or custom events?</h3>
+          <p class="feature-box-text">Yes. Corporate Ganga Aarti and private custom ceremonies can be planned for teams, guests, and special family occasions.</p>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 fade-in-up">
+        <div class="feature-box h-100">
+          <h3 class="feature-box-title">Do all images need alt text?</h3>
+          <p class="feature-box-text">Yes. Descriptive alt text improves accessibility and gives search engines more context about each ceremony image and landing page.</p>
         </div>
       </div>
     </div>

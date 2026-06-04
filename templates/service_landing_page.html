@@ -1,0 +1,204 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}{{ page_title }}{% endblock %}
+{% block meta_description %}{{ meta_description }}{% endblock %}
+{% block meta_keywords %}{{ meta_keywords }}{% endblock %}
+{% block og_title %}{{ page_title }}{% endblock %}
+{% block og_description %}{{ meta_description }}{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static hero_image %}{% endblock %}
+
+{% block extra_head %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Kashi Ganga",
+  "description": "{{ service_summary|escapejs }}",
+  "url": "{{ request.scheme }}://{{ request.get_host }}{{ request.path }}",
+  "telephone": "{{ site_phone_primary }}",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Assi Ghat",
+    "addressLocality": "Varanasi",
+    "addressRegion": "Uttar Pradesh",
+    "postalCode": "221005",
+    "addressCountry": "IN"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {% for faq in faqs %}
+    {
+      "@type": "Question",
+      "name": "{{ faq.question|escapejs }}",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "{{ faq.answer|escapejs }}"
+      }
+    }{% if not forloop.last %},{% endif %}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<section class="page-hero">
+  <div class="page-hero-content container">
+    <div class="section-badge mx-auto mb-3" style="background:rgba(249,183,51,0.15); color:var(--secondary); border-color:rgba(249,183,51,0.3);">
+      {{ hero_badge }}
+    </div>
+    <h1 class="page-hero-title">{{ hero_title }}</h1>
+    <p class="page-hero-sub">{{ hero_subtitle }}</p>
+    <nav class="page-hero-breadcrumb">
+      <a href="{% url 'home' %}">Home</a>
+      <span class="sep">/</span>
+      <a href="{% url 'services' %}">Services</a>
+      <span class="sep">/</span>
+      <span>{{ service_name }}</span>
+    </nav>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+      <div class="col-lg-6 fade-in-up">
+        <div style="border-radius: var(--radius-xl); overflow:hidden; box-shadow: var(--shadow-lg); min-height: 420px; background:#fff;">
+          <img src="{% static hero_image %}" alt="{{ hero_image_alt }}" style="width:100%; height:100%; object-fit:cover; min-height:420px;" loading="lazy" />
+        </div>
+      </div>
+      <div class="col-lg-6 fade-in-up">
+        <div class="section-badge">{{ service_name }}</div>
+        <h2 class="section-title">{{ service_name }} <span>Overview</span></h2>
+        <div class="section-divider left"></div>
+        {% for paragraph in overview_paragraphs %}
+        <p style="color:var(--text-muted); line-height:1.9; margin-bottom:16px;">{{ paragraph }}</p>
+        {% endfor %}
+
+        <div class="row g-3 mt-4">
+          {% for item in highlights %}
+          <div class="col-md-6">
+            <div style="background: var(--bg-light); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; font-size: 0.95rem; font-weight: 500; color: var(--text-body); display:flex; align-items:center; gap:8px; height:100%;">
+              <span style="color: var(--secondary);">✦</span>
+              {{ item }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <div class="d-flex gap-3 flex-wrap mt-4">
+          <a href="{% url 'booking' %}" class="btn-primary-custom">
+            <i class="fas fa-calendar-alt"></i> Book Now
+          </a>
+          <a href="https://wa.me/{{ whatsapp_number }}?text={{ whatsapp_message|urlencode }}" target="_blank" rel="noopener" class="btn-outline-custom">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" style="background: var(--bg-light);">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-5 fade-in-up">
+        <div class="feature-box h-100">
+          <span class="feature-box-icon">📍</span>
+          <h3 class="feature-box-title">Where We Arrange It</h3>
+          <p class="feature-box-text">We coordinate ceremonies at Assi Ghat, Dashashwamedh Ghat, and other Varanasi locations depending on your plan and the ritual type.</p>
+          <ul class="service-card-features mt-3">
+            {% for area in service_areas %}
+            <li>{{ area }}</li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="col-lg-7 fade-in-up">
+        <div class="feature-box h-100">
+          <span class="feature-box-icon">🧭</span>
+          <h3 class="feature-box-title">How Booking Works</h3>
+          <p class="feature-box-text">The process is simple, and we keep the ceremony plan easy to understand before you arrive.</p>
+          <div class="row g-3 mt-2">
+            {% for step in process_steps %}
+            <div class="col-12">
+              <div style="background: #fff; border: 1px solid var(--border); border-radius: var(--radius-md); padding: 14px 16px; display:flex; gap:12px; align-items:flex-start;">
+                <div style="width:34px; height:34px; border-radius:50%; background: rgba(230,92,0,0.12); color: var(--primary); display:flex; align-items:center; justify-content:center; font-weight:700; flex:0 0 34px;">{{ forloop.counter }}</div>
+                <div style="color: var(--text-muted); line-height:1.75;">{{ step }}</div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section-padding">
+  <div class="container">
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">❓ Frequently Asked Questions</div>
+      <h2 class="section-title">Common Questions About <span>{{ service_name }}</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+    <div class="row g-4">
+      {% for faq in faqs %}
+      <div class="col-lg-4 col-md-6 fade-in-up">
+        <div class="feature-box h-100">
+          <h3 class="feature-box-title">{{ faq.question }}</h3>
+          <p class="feature-box-text">{{ faq.answer }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section-padding" style="background: var(--bg-light);">
+  <div class="container">
+    <div class="section-header center text-center fade-in-up">
+      <div class="section-badge">🔗 Related Pages</div>
+      <h2 class="section-title">Explore Other <span>Ganga Aarti Services</span></h2>
+      <div class="section-divider mx-auto"></div>
+    </div>
+    <div class="row g-3 justify-content-center">
+      {% for related in related_pages %}
+      <div class="col-lg-4 col-md-6 fade-in-up">
+        <a href="{% url related.url_name %}" class="service-card d-block h-100" style="text-decoration:none; color:inherit;">
+          <div class="service-card-body">
+            <h3 class="service-card-title">{{ related.label }}</h3>
+            <p class="service-card-text">Read the dedicated page for ceremony details, FAQs, and booking guidance.</p>
+          </div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="booking-cta-section section-padding">
+  <div class="container text-center position-relative" style="z-index:1;">
+    <div class="fade-in-up">
+      <h2 class="section-title" style="color:white; font-size:clamp(1.8rem,4vw,2.6rem);">Ready to book {{ service_name }}?</h2>
+      <p class="mt-2 mb-4" style="color:rgba(255,255,255,0.8); max-width:650px; margin:12px auto 28px;">
+        Share your date and location preference and we will help you plan a respectful, well-organized ceremony in Varanasi.
+      </p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="{% url 'booking' %}" class="btn-outline-custom" style="border-color:white; color:white;">
+          <i class="fas fa-envelope"></i> Send Inquiry
+        </a>
+        <a href="https://wa.me/{{ whatsapp_number }}?text={{ whatsapp_message|urlencode }}" target="_blank" rel="noopener" class="btn-primary-custom" style="background:white; color:var(--primary);">
+          <i class="fab fa-whatsapp" style="color:#25d366;"></i> Chat on WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -6,21 +6,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- SEO Meta Tags -->
-  <title>{% block title %}Kashi Ganga — Divine Aarti & Spiritual Event Services{% endblock %}</title>
-  <meta name="description" content="{% block meta_description %}Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and spiritual events in Varanasi.{% endblock %}" />
+  <title>{% block title %}Kashi Ganga Aarti | Ganga Aarti Booking in Varanasi{% endblock %}</title>
+  <meta name="description" content="{% block meta_description %}Book Ganga Aarti ceremonies in Varanasi for weddings, birthdays, anniversaries, private blessings, and special family events.{% endblock %}" />
   <meta name="keywords" content="{% block meta_keywords %}Ganga Aarti Booking, Varanasi Ganga Aarti Service, Private Ganga Aarti Ceremony{% endblock %}" />
   <meta name="author" content="Kashi Ganga" />
   <meta name="robots" content="{% block meta_robots %}index, follow{% endblock %}" />
 
   <!-- Open Graph -->
-  <meta property="og:title" content="{% block og_title %}Kashi Ganga — Divine Aarti & Spiritual Event Services{% endblock %}" />
-  <meta property="og:description" content="{% block og_description %}Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and special spiritual events.{% endblock %}" />
+  <meta property="og:title" content="{% block og_title %}Kashi Ganga Aarti | Ganga Aarti Booking in Varanasi{% endblock %}" />
+  <meta property="og:description" content="{% block og_description %}Book sacred Ganga Aarti ceremonies in Varanasi for weddings, birthdays, anniversaries, private blessings, and special family events.{% endblock %}" />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="{% block og_url %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}" />
   <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'images/hero-aarti.jpg' %}{% endblock %}" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kashi Ganga — Divine Aarti & Spiritual Event Services" />
-  <meta name="twitter:description" content="Book sacred Ganga Aarti ceremonies for weddings, birthdays, anniversaries and special spiritual events." />
+  <meta name="twitter:title" content="Kashi Ganga Aarti | Ganga Aarti Booking in Varanasi" />
+  <meta name="twitter:description" content="Book sacred Ganga Aarti ceremonies in Varanasi for weddings, birthdays, anniversaries, private blessings, and special family events." />
 
   <!-- Canonical -->
   <link rel="canonical" href="{% block canonical %}{{ request.scheme }}://{{ request.get_host }}{{ request.path }}{% endblock %}" />
@@ -184,11 +184,11 @@
           <div class="col-lg-3 col-md-6 col-6">
             <h5 class="footer-heading">Our Services</h5>
             <ul class="footer-links">
-              <li><a href="{% url 'services' %}">Wedding Ganga Aarti</a></li>
-              <li><a href="{% url 'services' %}">Birthday Aarti</a></li>
-              <li><a href="{% url 'services' %}">Anniversary Aarti</a></li>
-              <li><a href="{% url 'services' %}">Spiritual Ceremonies</a></li>
-              <li><a href="{% url 'services' %}">Satyanarayan Puja</a></li>
+              <li><a href="{% url 'wedding_ganga_aarti' %}">Wedding Ganga Aarti</a></li>
+              <li><a href="{% url 'birthday_ganga_aarti' %}">Birthday Ganga Aarti</a></li>
+              <li><a href="{% url 'anniversary_ganga_aarti' %}">Anniversary Ganga Aarti</a></li>
+              <li><a href="{% url 'private_ganga_aarti' %}">Private Ganga Aarti</a></li>
+              <li><a href="{% url 'corporate_ganga_aarti' %}">Corporate Ganga Aarti</a></li>
             </ul>
           </div>
 

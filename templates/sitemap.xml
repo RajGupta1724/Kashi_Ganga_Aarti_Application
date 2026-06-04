@@ -20,6 +20,31 @@
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>{{ site_root }}/wedding-ganga-aarti.html</loc>
+  <lastmod>{{ lastmod_now }}</lastmod>
+  <priority>0.78</priority>
+</url>
+<url>
+  <loc>{{ site_root }}/birthday-ganga-aarti.html</loc>
+  <lastmod>{{ lastmod_now }}</lastmod>
+  <priority>0.78</priority>
+</url>
+<url>
+  <loc>{{ site_root }}/anniversary-ganga-aarti.html</loc>
+  <lastmod>{{ lastmod_now }}</lastmod>
+  <priority>0.78</priority>
+</url>
+<url>
+  <loc>{{ site_root }}/private-ganga-aarti.html</loc>
+  <lastmod>{{ lastmod_now }}</lastmod>
+  <priority>0.78</priority>
+</url>
+<url>
+  <loc>{{ site_root }}/corporate-ganga-aarti.html</loc>
+  <lastmod>{{ lastmod_now }}</lastmod>
+  <priority>0.78</priority>
+</url>
+<url>
   <loc>{{ site_root }}/gallery/</loc>
   <lastmod>{{ lastmod_now }}</lastmod>
   <priority>0.80</priority>
