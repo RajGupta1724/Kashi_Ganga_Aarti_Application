@@ -2,9 +2,31 @@
 {% load static %}
 
 {% block title %}Kashi Ganga Aarti | Varanasi Ganga Aarti Timing & Booking{% endblock %}
-{% block meta_description %}Book Kashi Ganga Aarti online. Check Varanasi Ganga Aarti timing, booking details, and experience the spiritual evening at Assi Ghat. Ganga Aarti booking, timings, and details for devotees.{% endblock %}
+{% block meta_description %}...{% endblock %}
 
+{% block canonical %}https://kashigangaaarti.in/{% endblock %}
+{% block og_url %}https://kashigangaaarti.in/{% endblock %}
 
+{% block extra_head %}
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"LocalBusiness",
+ "name":"Kashi Ganga Aarti",
+ "url":"https://kashigangaaarti.in",
+ "telephone":"+919235054005",
+ "address":{
+   "@type":"PostalAddress",
+   "addressLocality":"Varanasi",
+   "addressRegion":"Uttar Pradesh",
+   "addressCountry":"IN"
+ }
+}
+</script>
+{% endblock %}
+{% block meta_keywords %}
+Kashi Ganga Aarti, Ganga Aarti Varanasi, Ganga Aarti Timing, Assi Ghat Aarti, Dashashwamedh Ghat Aarti, Ganga Aarti Booking, Kashi Ganga Aarti Booking
+{% endblock %}
 {% block content %}
 
 <!-- ============================================================
@@ -28,8 +50,8 @@
     <!-- Main Heading -->
     <h1 class="hero-title">Kashi Ganga Aarti</h1>
     <h2 class="hero-subtitle" style="font-size:1.5rem; font-weight:600; margin-top:10px;">Ganga Aarti Timing in Varanasi</h2>
-    <h2 class="hero-subtitle" style="font-size:1.3rem; font-weight:500; margin-top:10px;">Book Ganga Aarti Online</h2>
-    <h2 class="hero-subtitle" style="font-size:1.1rem; font-weight:500; margin-top:10px;">About Assi Ghat Aarti</h2>
+    <h3 class="hero-subtitle" style="font-size:1.3rem; font-weight:500; margin-top:10px;">Book Ganga Aarti Online</h3>
+    <h3 class="hero-subtitle" style="font-size:1.1rem; font-weight:500; margin-top:10px;">About Assi Ghat Aarti</h3>
 <!-- ============================================================
      SEO CONTENT SECTION
 ============================================================ -->
@@ -40,13 +62,21 @@
       Kashi Ganga Aarti is one of the most spiritual events held every evening at Assi Ghat in Varanasi. Devotees gather to witness the divine ritual performed with lamps, chants, and devotion. The Ganga Aarti at Assi Ghat is a mesmerizing experience, attracting people from all over the world who wish to feel the spiritual energy of Varanasi.
     </p>
     <p>
-      You can book your Ganga Aarti tickets online and check the latest timing for morning and evening aarti. Our priests perform the ceremony with utmost devotion, following Vedic traditions. Whether you are looking for Ganga Aarti booking, want to know the Ganga Aarti timing, or wish to experience the Dashashwamedh Ghat Aarti, we provide all the details and services for a memorable spiritual journey.
+      You can  check the latest timing ganga aarti. Our priests perform the ceremony with utmost devotion, following Vedic traditions. Whether you are looking for Ganga Aarti booking, want to know the Ganga Aarti timing, or wish to experience the Dashashwamedh Ghat Aarti, we provide all the details and services for a memorable spiritual journey.
+    </p>
+    <p>
+      Book your ceremony through our
+      <a href="{% url 'booking' %}">Ganga Aarti Booking page</a>.
+      Explore all
+      <a href="{% url 'services' %}">Ganga Aarti Services</a>
+      and view previous ceremonies in our
+      <a href="{% url 'gallery' %}">Photo Gallery</a>.
     </p>
     <ul>
       <li><strong>Ganga Aarti Timing:</strong> Early Morning (5–7 AM), Evening (6–8 PM) — <a href="/kashi-ganga-aarti-timing">Check Aarti Timing</a></li>
       <li><strong>Location:</strong> Assi Ghat, Varanasi, Uttar Pradesh</li>
       <li><strong>Booking:</strong> <a href="/ganga-aarti-booking">Book Ganga Aarti online</a> for all ceremonies</li>
-      <li><strong>Keywords:</strong> kashi ganga aarti, ganga aarti varanasi, ganga aarti timing, assi ghat aarti, ganga aarti booking</li>
+    
     </ul>
     <p>
       Experience the spiritual bliss of the Ganga Aarti in Varanasi. Book your ceremony today and be part of a tradition that has inspired millions. For more information on <a href="/ganga-aarti-booking">Ganga Aarti booking</a>, <a href="/kashi-ganga-aarti-timing">timings</a>, and <a href="/dashashwamedh-ghat-aarti">Dashashwamedh Ghat Aarti</a>, contact us anytime.
@@ -80,7 +110,7 @@
     <ul>
       <li><a href="/kashi-ganga-aarti-timing">Kashi Ganga Aarti Timing</a></li>
       <li><a href="/ganga-aarti-booking">Ganga Aarti Booking</a></li>
-      <li><a href="/dashashwamedh-ghat-aarti">Dashashwamedh Ghat Aarti</a></li>
+      <li><a href="/dashashwamedh-ghat-aarti">Assi Ghat Aarti</a></li>
     </ul>
   </div>
 </section>
@@ -519,9 +549,13 @@
       <div class="col-lg-8 fade-in-up">
         <div class="map-embed h-100" style="min-height:380px;">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.9455940939456!2d83.00641797509698!3d25.30827772823738!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2db76febcf4d%3A0x5688982a74fb21ad!2sDashashwamedha%20Ghat%2C%20Varanasi%2C%20Uttar%20Pradesh%20221001!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin"
-            width="100%" height="100%" style="min-height:380px; border:0; display:block;" allowfullscreen
-            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3607.4395846972216!2d83.0034987099931!3d25.289430977558453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e31edf14e0bb5%3A0x80b804534b43588c!2sAssi%20Ghat%2C%20(Varanasi)!5e0!3m2!1sen!2sin!4v1780940763095!5m2!1sen!2sin"
+              width="100%"
+              height="100%"
+              style="min-height:380px; border:0; display:block;"
+              allowfullscreen
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
           </iframe>
         </div>
       </div>
