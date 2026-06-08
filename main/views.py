@@ -379,7 +379,16 @@ def index(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    whatsapp_number = getattr(settings, 'WHATSAPP_NUMBER', '919235054005')
+    site_address = getattr(settings, 'SITE_ADDRESS', 'Assi Ghat, Varanasi, UP, India')
+    site_email = getattr(settings, 'SITE_EMAIL', 'booking@kashiganga.in')
+    site_phone_primary = getattr(settings, 'SITE_PHONE_PRIMARY', None)
+    return render(request, 'about.html', {
+        'whatsapp_number': whatsapp_number,
+        'site_address': site_address,
+        'site_email': site_email,
+        'site_phone_primary': site_phone_primary,
+    })
 
 
 def ratings(request):
