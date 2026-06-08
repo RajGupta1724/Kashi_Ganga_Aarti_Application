@@ -4,6 +4,9 @@ from . import views
 
 urlpatterns = [
     path('', views.index, name='index'),
+    # SEO files
+    path('sitemap.xml', views.sitemap_xml, name='sitemap'),
+    path('robots.txt', views.robots_txt, name='robots_txt'),
     path('home/', RedirectView.as_view(url='/', permanent=True)),
     path('ratings/', views.ratings, name='ratings'),
     path('health/', views.health, name='health'),
