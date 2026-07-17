@@ -4,7 +4,9 @@ from django.db.models import Avg
 from django.http import HttpResponse, JsonResponse
 from django.shortcuts import redirect, render
 from django.template.loader import render_to_string
+from django.templatetags.static import static
 from django.utils import timezone
+from types import SimpleNamespace
 
 from .forms import BookingForm, ServiceReviewForm
 from .models import GalleryImage, ServiceReview, Testimonial
@@ -308,6 +310,13 @@ def _service_page_context(request, page_key):
     }
 
 
+def _featured_gallery_image(title, static_path):
+    return SimpleNamespace(
+        title=title,
+        image=SimpleNamespace(url=static(static_path)),
+    )
+
+
 def _render_service_page(request, page_key):
     return render(request, 'service_landing_page.html', _service_page_context(request, page_key))
 
@@ -355,7 +364,10 @@ def _service_review_context(request, review_form=None):
 
 def index(request):
     testimonials = Testimonial.objects.filter(is_active=True)[:6]
-    gallery_preview = GalleryImage.objects.filter(is_active=True)[:6]
+    gallery_preview = [
+        _featured_gallery_image('Ganga Aarti', 'images/ganga_aarti.jpeg'),
+        *GalleryImage.objects.filter(is_active=True)[:5],
+    ]
 
     if request.method == 'POST':
         review_form = ServiceReviewForm(request.POST)
@@ -451,9 +463,12 @@ def gallery(request):
     images = GalleryImage.objects.filter(is_active=True)
     if category != 'all':
         images = images.filter(category=category)
+    featured_images = []
+    if category in {'all', 'ganga_aarti'}:
+        featured_images.append(_featured_gallery_image('Ganga Aarti', 'images/ganga_aarti.jpeg'))
     categories = GalleryImage.CATEGORY_CHOICES
     return render(request, 'gallery.html', {
-        'images': images,
+        'images': [*featured_images, *images],
         'categories': categories,
         'active_category': category,
     })
